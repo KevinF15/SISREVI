@@ -1,0 +1,160 @@
+:root {
+    --primary-color: #17BFE8;
+    --font-color: #67748E;
+    --font-color-dark: #344767;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F8F9FA;
+    font-family: "Nunito", sans-serif;
+    color: var(--font-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--font-color) !important;
+}
+
+#wrapper {
+  display: flex;
+}
+
+/***************************
+ *         SIDEBAR 
+ ***************************/
+
+#sidebar {
+    position: fixed;
+    min-width: 250px;
+    padding: 15px;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+#sidebar .sidebar-header {
+    text-align: center;
+    font-weight: 800;
+    margin: 24px 0;
+}
+
+#sidebar .sidebar-header a {
+    font-size: 20px;
+    color: var(--primary-color);
+}
+
+#sidebar .sidebar-header i {
+    font-size: 25px;
+    color: var(--primary-color);
+}
+
+/*----- Navigation -----*/
+
+.sidenav .nav-link {
+    margin: 2px 10px;
+    border-radius: 8px;
+    transition: all 0.15s ease-in;
+}
+
+.sidenav .nav-link i {
+    background: #FFF;
+    border-radius: 8px;
+    /*padding: 10px;*/
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    margin: 0 5px;
+    box-shadow: 0 4px 6px -1px rgb(20 20 20 / 10%), 0 1px 4px -1px rgb(20 20 20 / 7%) !important;
+}
+
+.sidenav .nav-link.active, .sidenav .nav-link.active:hover {
+    background:  #FFF;
+    font-weight: 700;
+    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+}
+
+.sidenav .nav-link.active i {
+    background-image: linear-gradient(310deg, var(--primary-color) 0%, var(--primary-color) 100%);
+    color:  #FFF;
+    box-shadow: none;
+}
+
+.sidenav .nav-link:hover {
+    background: #E3E6EB;
+}
+
+/*.sidenav .nav-link:hover > i {
+    background-image: linear-gradient(310deg, var(--primary-color) 0%, var(--primary-color) 100%);
+    color:  #FFF;
+    box-shadow: none;
+}*/
+
+#sidebar h6.sidebar-category {
+    margin: 10px 30px;
+    font-weight: 700;
+    color:  #828EA1;
+}
+
+/***************************
+ *         HEADER
+ ***************************/
+
+#header {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.headerdir .cat {
+    font-size: 14px;
+    color: #97A1B1;
+}
+
+.headerdir .page {
+    font-size: 20px;
+    color: var(--font-color-dark);
+    font-weight: 700;
+}
+
+/*----- Navigation -----*/
+
+.headernav li.nav-link {
+    color: var(--font-color);
+    cursor: pointer;
+}
+
+.headernav li.nav-link:hover {
+    color: #515C70;
+}
+
+.headernav .user-photo img {
+    width: 25px;
+    margin-right: 5px;
+}
+
+/***************************
+ *         CONTENT
+ ***************************/
+
+#content {
+    width: 100%;
+    position: relative;
+    margin-left: 250px;
+    padding: 0 20px;
+}
+
+/*----- Tab Panels -----*/
+
+.panel-tabs {
+    /* Codigo aqui pero aja, todavia no xd */
+}
+
+.panel-content {
+    background: #FFF;
+    border: 1px solid #DEE2E6;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+}
