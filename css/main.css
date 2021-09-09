@@ -178,29 +178,106 @@ a {
 .card {
     background: #FFF;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 24px 0;
     box-shadow: var(--card-shadow);
+}
+
+.card-forms {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card-forms h5 {
+    font-weight: 700;
+}
+
+.card-forms label {
+    font-size: 11pt;
+    font-weight: 700;
+}
+
+.card-forms input {
+    border-radius: 10px;
+}
+
+.card-forms input::placeholder {
+    color: #A8AAAD;
 }
 
 /*----- Tab Panels -----*/
 
 .nav-tabs {
-    border-bottom: 1px solid #dee2e6;
+    border: none;
     margin: 0 auto;
-    padding: 10px;
+    padding-bottom: 20px;
 }
 
 .nav-tabs .nav-link {
     border: none;
+    color: #A8AAAD !important;
 }
 
-.nav-tabs .nav-link .active {
+.nav-tabs .nav-link.active {
     border: none;
+    background: none;
+    color: var(--font-color) !important;
+}
+
+.nav-tabs .nav-item {
+    /*background: #FFF;
+    border: none;
+    border-radius: 10px;
+    padding: 6px 0;
+    box-shadow: var(--card-shadow);
+    text-align: center;*/
+    display: block;
+    color: #A8AAAD;
+    text-align: center;
+    margin: 5px;
+}
+
+.nav-tabs .nav-item i {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+    /*background: linear-gradient(130deg, rgba(23,191,232,1) 0%, rgba(17,140,171,1) 100%);
+    color: #FFF;
+    border-radius: 8px;
+    width: 48px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 48px;
+    margin: 0 5px;
+    box-shadow: 0 0.25rem 0.375rem -0.0625rem rgb(20 20 20 / 12%), 0 0.125rem 0.25rem -0.0625rem rgb(20 20 20 / 7%) !important;*/
+}
+
+/*
+
+.nav-tabs .nav-item {
+    display: block;
+    padding: 20px;
+    border: none;
+    border-radius: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #444;
+    margin-right: 0;
+    text-align: center;
+    z-index: 1;
+    transition: all 0.3s ease 0s;
+}
+
+.nav-tabs .nav-item i {
+    display: block;
+    font-size: 40px;
+    color: #00a6ff;
+    margin-bottom: 15px;
 }
 
 .panel-tabs {
-    /* Codigo aqui pero aja, todavia no xd */
+    box-shadow: var(--card-shadow);
 }
 
 .panel-content {
@@ -210,3 +287,4 @@ a {
     border-radius: 0 0 10px 10px;
     padding: 10px;
 }
+*/
