@@ -62,6 +62,10 @@
 						<i class="fas fa-warehouse"></i> Inventario
 					</a>
 
+					<a class="nav-link pedidos" href="?pagina=pedidos">
+						<i class="fas fa-luggage-cart"></i> Pedidos
+					</a>
+
 					<h6 class="sidebar-category">Otros</h6>
 
 					<a class="nav-link respaldo" href="?pagina=respaldo">
@@ -84,12 +88,28 @@
 				    		<li class="nav-link">
 				    			<i class="fas fa-bell"></i>
 				    		</li>
-				    		<li class="nav-link">
-				    			<i class="fas fa-cog"></i>
-				    		</li>
-				    		<li class="nav-link user-photo">
-				    			<img src="images/user.png"><i class="fas fa-sort-down"></i>
-				    		</li>
+				    		<div class="btn-group">
+				    			<!-- Configuration menu -->
+					    		<li class="nav-link dropdown" role="button" id="configMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<i class="fas fa-cog"></i>
+									<div class="dropdown-menu header-dropdown" aria-labelledby="configMenu">
+										<h6 class="dropdown-header">Opciones administrativas</h6>
+									    <a class="dropdown-item" href="#"><i class="fas fa-user-tie"></i> Gestionar empleados</a>
+									    <a class="dropdown-item" href="#"><i class="fas fa-calculator"></i> Calcular sueldos</a>
+									    <h6 class="dropdown-header">Otras opciones</h6>
+									    <a class="dropdown-item" href="#"><i class="fas fa-sliders-h"></i> Ajustes de sistema</a>
+									</div>
+					    		</li>
+				    		</div>
+							<div class="btn-group">
+								<!-- User profile menu -->
+					    		<li class="nav-link dropdown user-profile" role="button" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    			<img src="images/user.png"><i class="fas fa-sort-down"></i>
+					    			<div class="dropdown-menu header-dropdown" aria-labelledby="userMenu">
+									    <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+									</div>
+					    		</li>
+				    		</div>
 				    	</ul>
 				    </nav>
 				</header>
@@ -112,10 +132,11 @@
 			</main>
 		</div>
 
+
 		<!-- Load jQuery and others Frameworks -->
-		<script type="text/javascript" src="js/lib/jquery-3.6.0.min.js"></script>
-		<script type="text/javascript" src="js/lib/popper.min.js"></script>
-		<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/lib/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/lib/popper.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/lib/bootstrap.min.js" crossorigin="anonymous"></script>
 
 		<script type="text/javascript" src="js/index.js"></script>
 	</body>

@@ -2,6 +2,7 @@
     --primary-color: #17BFE8;
     --font-color: #67748E;
     --font-color-dark: #344767;
+    --card-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
 }
 
 *, *::before, *::after {
@@ -73,7 +74,7 @@ a {
 .sidenav .nav-link.active, .sidenav .nav-link.active:hover {
     background:  #FFF;
     font-weight: 700;
-    box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+    box-shadow: var(--card-shadow);
 }
 
 .sidenav .nav-link.active i {
@@ -129,9 +130,38 @@ a {
     color: #515C70;
 }
 
-.headernav .user-photo img {
+.headernav .user-profile img {
     width: 25px;
     margin-right: 5px;
+}
+
+/*----- Dropdown menu -----*/
+
+.headernav .header-dropdown {
+    right: 0;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.header-dropdown .dropdown-item {
+    padding: auto 4px;
+    border-radius: 5px;
+    transition: all 0.15s ease-in;
+}
+
+.header-dropdown .dropdown-item i {
+    display: inline-block;
+    margin: 8px;
+}
+
+.header-dropdown .dropdown-item:hover {
+    background: #F2F5FA;
+}
+
+.header-dropdown .dropdown-item:hover > i {
+    color: #525C70;
 }
 
 /***************************
@@ -145,7 +175,29 @@ a {
     padding: 0 20px;
 }
 
+.card {
+    background: #FFF;
+    border: none;
+    border-radius: 10px;
+    padding: 24px 0;
+    box-shadow: var(--card-shadow);
+}
+
 /*----- Tab Panels -----*/
+
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+}
+
+.nav-tabs .nav-link .active {
+    border: none;
+}
 
 .panel-tabs {
     /* Codigo aqui pero aja, todavia no xd */
