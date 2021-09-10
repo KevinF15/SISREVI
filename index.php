@@ -7,9 +7,10 @@
 
 	$ventanas = array(
 		"principal" => "Página principal",
-		"ventas" => "Resgistro de ventas",
+		"ventas" => "Registro de ventas",
 		"inventario" => "Control de inventario",
 		"ayuda" => "Soporte",
+		"pedidos" => "Registro de compras",
 	);
 ?>
 
