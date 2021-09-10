@@ -288,3 +288,40 @@ a {
     padding: 10px;
 }
 */
+
+/*de miguel :3 platanito*/
+
+.nav-op-ventas{
+    background-color: #17BFE8;
+    border-radius: 10px;
+    border-color: #17BFE8;
+    font-size: 12px;
+    color: white;
+}
+.nav-op-ven li{
+    list-style: none;
+    display: inline-block;
+}
+.nav-op-ventas:hover{
+    background-color: #1794e8;
+    border-color: #1794e8;
+    transition: .5s;
+}
+#papelera{
+    visibility: hidden;
+    opacity: 0;
+}
+.ventas:hover #papelera{
+    visibility: visible;
+    opacity: 1;
+    cursor: pointer;
+}
+#papelera:hover{
+    color: red;
+}
+#nombre{
+    font-size: 20px;
+}
+#pelo{
+    padding-left: 20px;
+}
