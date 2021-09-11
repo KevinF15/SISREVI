@@ -18,7 +18,7 @@
                     <li>
                         <div class="form-group mb-3">
                             <label for="pcodeInput" class="form-label">Cliente</label>
-                                <input type="text" class="form-control" id="pcodeInput" name="cod" aria-describedby="codHelp" placeholder="Cedula">
+                                <input type="text" class="form-control" id="pcodeInput" name="cod" aria-describedby="codHelp" placeholder="Cedula/RIF">
                             <div id="codHelp" class="form-text"></div>
                         </div>
                     </li>
@@ -136,6 +136,9 @@
                         <div class="col-3">
                             <input type="datetime-local" name="tiempo_maximo" class="form-control" id="pcodeInput">
                         </div>
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-gradient-primary-color" name="Enivir">Enviar</button>
+                        </div>
                     </div>
                     <div id="codHelp" class="form-text"></div>
                 </div>
@@ -172,10 +175,77 @@
                         </td>
                     </tr>
             </table>
+            <div class="container" id="tolaes">
+                <div class="row">
+                    <div class="col">
+                        <h6>TOTAL GENERAL:</h6>
+                        <h6>Nada tamos pelaos :,v</h6>
+                    </div>
+                    <div class="col">
+                        <h6>TOTAL DIVISA:</h6>
+                        <h6>me comi una banana</h6>
+                    </div>
+                    <div class="col">
+                        <h6>TOTAL PUNTO:</h6>
+                        <h6>joer quiero money</h6>
+                    </div>
+                    <div class="col">
+                        <h6>TOTAL EFECTIVO:</h6>
+                        <h6>una locha</h6>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="tab-pane fade card card-forms" id="editProduct" role="tabpanel" aria-labelledby="test-tab">
-            olaakakajkaaa
+            <h5 class="mb-0">Historial de devoluciones</h5>
+            <form method="POST" class="d-flex flex-column">
+                <div class="form-group mb-3">
+                    <label for="pcodeInput" class="form-label">Intervalo de tiempo</label>
+                    <div class="form-group row">
+                        <div class="col-3">
+                            <input type="datetime-local" class="form-control" id="pcodeInput" name="cod">
+                        </div>
+                        <div class="col-3">
+                            <input type="datetime-local" name="tiempo_maximo" class="form-control" id="pcodeInput">
+                        </div>
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-gradient-primary-color" name="Enivir">Enviar</button>
+                        </div>
+                    </div>
+                    <div id="codHelp" class="form-text"></div>
+                </div>
+            </form>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cogigo de devolucion</th>
+                        <th>Metodo de pago</th>
+                        <th>ToTal</th>
+                        <th>Fecha</th>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="ventas">
+                        <td>000001</td>
+                        <td>Divisa</td>
+                        <td>mucha plata</td>
+                        <td>ayer</td>
+                        <td>
+                            <i class="fas fa-eye" href="#editProduct" id="papelera"></i>
+                        </td>
+                    </tr>
+                    <tr class="ventas">
+                        <td>000002</td>
+                        <td>la dea</td>
+                        <td>>:)</td>
+                        <td>3H</td>
+                        <td>
+                            <i class="fas fa-eye" href="#editProduct" id="papelera"></i>
+                        </td>
+                    </tr>
+            </table>
         </div>
     </div>
 </div>
