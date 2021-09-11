@@ -58,8 +58,10 @@
 
         <!-- Add products -->
         <div class="tab-pane fade card card-forms" id="addProduct" role="tabpanel" aria-labelledby="test-tab">
-            <h5 class="mb-0">Añadir producto</h5>
-            <p class="mb-3 text-sm">Inserte la información especificada</p>
+            <div class="card-head">
+                <h5 class="mb-0">Añadir producto</h5>
+                <p class="mb-3 text-sm">Inserte la información especificada</p>
+            </div>
             <form method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">
                     <label for="pcodeInput" class="form-label">Código de producto</label>
@@ -102,8 +104,10 @@
 
         <!-- Product edition -->
         <div class="tab-pane fade card card-forms" id="editProduct" role="tabpanel" aria-labelledby="test-tab">
-            <h5 class="mb-0">Editar producto</h5>
-            <p class="mb-3 text-sm">Seleccione el producto a editar y modifique su información.</p>
+            <div class="card-head">
+                <h5 class="mb-0">Editar producto</h5>
+                <p class="mb-3 text-sm">Seleccione el producto a editar y modifique su información.</p>
+            </div>
             <form method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">
                     <label for="pcodeInput" class="form-label">Producto</label>

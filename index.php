@@ -138,6 +138,7 @@
 		<script type="text/javascript" src="js/lib/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="js/lib/popper.min.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="js/lib/bootstrap.min.js" crossorigin="anonymous"></script>
+		<script src="js/lib/chartjs.min.js"></script>
 
 		<script type="text/javascript" src="js/index.js"></script>
 	</body>

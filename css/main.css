@@ -1,5 +1,6 @@
 :root {
     --primary-color: #17BFE8;
+    --gradient-color: linear-gradient(133deg, rgba(23,191,232,1) 0%, rgba(23,113,232,1) 100%);
     --font-color: #67748E;
     --font-color-dark: #344767;
     --card-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
@@ -42,7 +43,7 @@ a {
 }
 
 .btn-gradient-primary-color { 
-    background: linear-gradient(133deg, rgba(23,191,232,1) 0%, rgba(23,113,232,1) 100%);
+    background: var(--gradient-color);
     color: #FFF;
     font-weight: 700;
 }
@@ -88,7 +89,7 @@ a {
     transition: all 0.15s ease-in;
 }
 
-.sidenav .nav-link i {
+.sidenav .nav-link i, .card-icon {
     background: #FFF;
     border-radius: 8px;
     width: 40px;
@@ -212,14 +213,49 @@ a {
     box-shadow: var(--card-shadow);
 }
 
+.card .card-head h5 {
+    font-weight: 700;
+}
+
+.card-mini .card-head {
+    margin: 12px;
+}
+
 .card-forms {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
 }
 
-.card-forms h5 {
+/*----- Cards -----*/
+
+.card-mini {
+    padding: 12px;
+    min-width: 260px;
+    margin: 0 20px 20px 20px;
+}
+
+.card-mini .title {
+    font-weight: bolder;
+    margin: 0;
+    margin-bottom: 5px;
+    color: #4B5566;
+}
+
+.card-mini .content {
+    margin: 0;
     font-weight: 700;
+    font-size: 12pt;
+}
+
+.card-icon {
+    background: var(--gradient-color);
+    color: #FFF;
+    margin: 0 auto;
+    width: 46px;
+    text-align: center;
+    font-size: 14pt;
+    line-height: 46px;
 }
 
 .card-forms label {
@@ -237,6 +273,15 @@ a {
 
 .card-forms input[type=button], .card-forms button {
     margin: 0 10px;
+}
+
+/***************************
+ *         OTRO
+ ***************************/
+
+.graph-sales {
+    padding: 24px;
+    min-width: 550px;
 }
 
 /***************************
