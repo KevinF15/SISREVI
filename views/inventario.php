@@ -1,20 +1,19 @@
-<!-- Tabs -->
-<ul class="nav nav-tabs flex-colum justify-content-around" role="tablist">
-    <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#productList" role="tab"><i class="fas fa-boxes"></i>Productos en almacen</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#addProduct" role="tab"><i class="fas fa-box"></i> Añadir producto</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#editProduct" role="tab"><i class="fas fa-edit"></i> Editar producto</a>
-    </li>
-</ul>
-
 <div class="inventory-panel">
-    <div class="tab-content">
-        <!-- List -->
-        <div class="tab-pane fade show active card" id="productList">
+    <!-- Tabs -->
+	<ul class="nav nav-tabs flex-colum justify-content-around" role="tablist">
+		<li class="nav-item" role="presentation">
+			<a href="#productList" class="nav-link active" data-bs-toggle="tab" data-bs-target="#productList" type="button" role="tab" aria-selected="true"><i class="fas fa-boxes"></i> Productos en almacen</a>
+		</li>
+		<li class="nav-item" role="presentation">
+			<a href="#addProduct" class="nav-link" data-bs-toggle="tab" data-bs-target="#addProduct" type="button" role="tab" aria-selected="false"><i class="fas fa-box"></i> Añadir producto</a>
+		</li>
+		<li class="nav-item" role="presentation">
+			<a href="#editProduct" class="nav-link" data-bs-toggle="tab" data-bs-target="#editProduct" type="button" role="tab" aria-selected="false"><i class="fas fa-edit"></i> Editar producto</a>
+		</li>
+	</ul>
+	<div class="tab-content">
+        <!-- Product list -->
+		<div class="tab-pane fade show active card" id="productList" role="tabpanel">
             <div class="product-table table-responsive">
                 <table class="table">
                     <thead>
@@ -55,9 +54,8 @@
                 </table>
             </div>
         </div>
-
-        <!-- Add products -->
-        <div class="tab-pane fade card card-forms" id="addProduct" role="tabpanel" aria-labelledby="test-tab">
+        <!-- Add product -->
+		<div class="tab-pane fade card card-forms" id="addProduct" role="tabpanel">
             <div class="card-head">
                 <h5 class="mb-0">Añadir producto</h5>
                 <p class="mb-3 text-sm">Inserte la información especificada</p>
@@ -101,10 +99,9 @@
                 </div>
             </form>
         </div>
-
-        <!-- Product edition -->
-        <div class="tab-pane fade card card-forms" id="editProduct" role="tabpanel" aria-labelledby="test-tab">
-            <div class="card-head">
+        <!-- Edit product -->
+		<div class="tab-pane fade card card-forms" id="editProduct" role="tabpanel">
+			<div class="card-head">
                 <h5 class="mb-0">Editar producto</h5>
                 <p class="mb-3 text-sm">Seleccione el producto a editar y modifique su información.</p>
             </div>
@@ -150,6 +147,6 @@
                     <button type="submit" class="btn btn-gradient-primary-color" name="agregar">Agregar</button>
                 </div>
             </form>
-        </div>
-    </div>
+		</div>
+	</div>
 </div>

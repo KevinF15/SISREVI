@@ -1,12 +1,38 @@
 $(document).ready(function() {
-	// Establecer la pagina actual seleccionada.
+	// Set the actual page
 	$(`a.${actual_page}`).addClass('active');
+
+	// Inicialize tooltips
+	$('[data-bs-toggle="tooltip"]').tooltip();
+
+	// Settings panel animation
+	$(".open-settings").click(function() {
+		$("#settings").toggle("slide", {direction: 'right'});
+	});
+
+	$(".close-settings").click(function() {
+		$("#settings").toggle();
+	});
+
+
+	/***************************************
+	          Keep tabs on reload
+	***************************************/
+
+	// Store the currently tab in the window.hash
+	/*$("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+	  window.location.hash = $(e.target).attr("href").substr(1);
+	});*/
+
+	// Switch to the currently selected tab
+	/*var current_tab = window.location.hash || null;
+	if (current_tab) $(`.nav-tabs a[href="${current_tab}"]`).tab('show');*/
 
 	/***************************************
 		Dolar Price (exchangemonitor.net)
 	***************************************/
 
-	$.getJSON("https://exchangemonitor.net/ajax/widget-unique", {"country":"ve","type":"enparalelovzla"}, function (data) {
+	$.getJSON("https://exchangemonitor.net/ajax/widget-unique", {"country": "ve", "type": "enparalelovzla"}, function (data) {
 		$('.dolarprice').text(`${data.price} Bs.`);
 	});
 
