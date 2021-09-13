@@ -253,60 +253,49 @@
                         </tr>
                 </table>
 				<div>
-					<button type="button" class="btn btn-gradient-primary-color" data-toggle="modal" data-target="#modal2" name="agregar">Registar nuevo</button>
+					<button type="button" class="btn btn-gradient-primary-color" data-bs-toggle="modal" data-bs-target="#proveeModal">Registar nuevo</button>
 				</div>
-                <div class="modal fade" tabindex="-1" role="dialog"  id="modal2">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-header text-light bg-info">
-                            <h5 class="modal-title">Registar nuevo proveedor</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-content" id="modal1">
-                            <div class="container">
-                                <br>
-                                <form method="POST" class="d-flex flex-column">
-                                    <div class="form-group mb-3">
-                                        <label for="pcodeInput" class="form-label">RIF</label>
-                                        <input type="text" class="form-control" id="pcodeInput" name="cod" aria-describedby="codHelp" placeholder="j-000000000">
-                                        <div id="codHelp" class="form-text"></div>
-                                    </div>
-
-                                    <div class="form-group row mb-3">
-                                        <div class="col-9">
+				<div class="modal fade" id="proveeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+					  <div class="modal-header text-light bg-info">
+						<h5 class="modal-title" id="productsModalLabel">Registrar nuevo proveedor</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					  </div>
+					  <div class="modal-body">
+                                    <form method="POST" class="d-flex flex-column">
+                                        <div>
+                                            <label for="pcodeInput" class="form-label">RIF</label>
+                                            <input type="text" class="form-control" id="pcodeInput" name="cod" aria-describedby="codHelp" placeholder="j-000000000">
+                                            <div id="codHelp" class="form-text"></div>
+                                        </div>
+                                        <div>
                                             <label for="pnameInput" class="form-label">Nombre</label>
                                             <input type="text" class="form-control" id="pnameInput" name="nombre" aria-describedby="nameHelp">
                                             <div id="nameHelp" class="form-text"></div>
                                         </div>
-                                        <div class="col-9">
+                                        <div>
                                             <label for="pnameInput" class="form-label">Telefono</label>
                                             <input type="text" class="form-control" id="existInput" name="existencia" min="0" step="1" aria-describedby="existHelp">
                                             <div id="existHelp" class="form-text"></div>
                                         </div>
-                                    </div>
-
-                                    <div class="form-group row mb-3">
-                                        <div class="col-9">
+                                        <div>
                                             <label for="pnameInput" class="form-label">Direccion</label>
                                             <textarea class="form-control" id="pdescInput" name="descripcion" aria-describedby="descHelp"></textarea>
                                             <div id="descHelp" class="form-text"></div>
                                         </div>
-                                    </div>
-                                    
-                                    <div class="button-row d-flex justify-content-end mt-4">
-                                        <input type="reset" class="btn btn-light">
-                                        <button type="submit" class="btn btn-gradient-primary-color" name="Registar">Registar</button>
-                                    </div>
-                                </form>
-                                <br>
-                            </div>
-                        </div>
-                        <div class="modal-footer bg-light">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        </div>
-                    </div>
-                </div>
+                                        <div class="button-row d-flex justify-content-end mt-4">
+                                            <input type="reset" class="btn btn-light">
+                                            <button type="submit" class="btn btn-gradient-primary-color" name="Registar">Registar</button>
+                                        </div>
+                                    </form>
+					  </div>
+					  <div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					  </div>
+					</div>
+				</div>
+				</div>
             </form>
         </div>
 	</div>
