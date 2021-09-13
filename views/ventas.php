@@ -1,18 +1,18 @@
 <ul class="nav nav-tabs flex-colum justify-content-around" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#productList" role="tab"><i class="fas fa-shopping-cart"></i>Nueva venta</a>
+        <a href="#newSale" class="nav-link active" data-bs-toggle="tab" data-bs-target="#newOrder" type="button" role="tab" aria-selected="true"><i class="fas fa-shopping-cart"></i>Nueva venta</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#addProduct" role="tab"><i class="fas fa-book"></i>Historial</a>
+        <a href="#salesHistory" class="nav-link" data-bs-toggle="tab" data-bs-target="#orderHistory" type="button" role="tab" aria-selected="false"><i class="fas fa-book"></i>Historial</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#editProduct" role="tab"><i class="fas fa-backspace"></i>Devoluciones</a>
+        <a href="#providers" class="nav-link" data-bs-toggle="tab" data-bs-target="#providers" type="button" role="tab" aria-selected="false"><i class="fas fa-backspace"></i>Devoluciones</a>
     </li>
 </ul>
 
 <div class="inventory-panel">
     <div class="tab-content">
-        <div class="tab-pane fade show active card" id="productList">
+        <div class="tab-pane fade show active card" id="newOrder" role="tabpanel">
             <form method="POST" class="d-flex flex-column">
                 <ul class="nav-op-ven">
                     <li>
@@ -124,7 +124,7 @@
             </form>
         </div>
         
-        <div class="tab-pane fade card card-forms" id="addProduct" role="tabpanel" aria-labelledby="test-tab">
+        <div class="tab-pane fade card" id="orderHistory" role="tabpanel">
             <h5 class="mb-0">Historial de ventas</h5>
             <form method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">
@@ -197,7 +197,7 @@
             </div>
         </div>
 
-        <div class="tab-pane fade card card-forms" id="editProduct" role="tabpanel" aria-labelledby="test-tab">
+        <div class="tab-pane fade card" id="providers" role="tabpanel">
             <h5 class="mb-0">Historial de devoluciones</h5>
             <form method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">
