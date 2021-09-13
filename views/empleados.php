@@ -103,21 +103,6 @@
 					                    </div>
 					                </div>
 					                <div class="form-group row mb-3">
-					                    <div class="col-6">
-					                        <label for="edocInput" class="form-label">Cedula</label>
-					                        <input type="number" class="form-control" id="edocInput" name="doc" aria-describedby="docHelp">
-					                        <div id="docHelp" class="form-text"></div>
-					                    </div>
-					                    <div class="col-6">
-					                        <label for="echargeInput" class="form-label">Cargo</label>
-					                        <select class="form-select" name="cargo" id="echargeInput" aria-describedby="chargeHelp">
-					                        	<option value="a" selected="">Administrador</option>
-					                        	<option value="c">Cajero</option>
-					                        </select>
-					                        <div id="chargeHelp" class="form-text"></div>
-					                    </div>
-					                </div>
-					                <div class="form-group row mb-3">
 					                    <div class="col-8">
 					                        <label for="edirInput" class="form-label">Dirección</label>
 					                        <textarea class="form-control" id="edirInput" name="direccion" aria-describedby="dirHelp"></textarea>
