@@ -40,7 +40,7 @@
     <div class="container my-4">
     	<!-- Company info -->
     	<div class="card company-info w-100">
-			<div class="card-head">
+			<div class="card-header">
 				<h5>RefriRepuestosGuaros C.A</h5>
 				<p class="text-sm">Información empresarial.</p>
 			</div>
@@ -50,7 +50,7 @@
 		</div>
 		<!-- Sales graphic -->
     	<div class="card card-mini sales-graph">
-			<div class="card-head">
+			<div class="card-header">
 				<h5>Gráfico de ventas</h5>
 			</div>
 			<div class="chart">

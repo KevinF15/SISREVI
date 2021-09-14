@@ -129,8 +129,8 @@
 		</div>
 		<!-- Order history -->
 		<div class="tab-pane fade card" id="orderHistory" role="tabpanel">
-            <div class="card-head">
-            	<h5 class="mb-3">Historial de pedidos</h5>
+            <div class="card-header">
+            	<h5>Historial de pedidos</h5>
             </div>
             <form method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">
@@ -184,8 +184,8 @@
         </div>
         <!-- Providers list -->
         <div class="tab-pane fade card" id="providers" role="tabpanel">
-            <div class="card-head">
-            	<h5 class="mb-3">Lista de proveedores</h5>
+            <div class="card-header">
+            	<h5>Lista de proveedores</h5>
             </div>
             <form method="POST" class="d-flex flex-column">
                 <div class="modal fade" tabindex="-1" role="dialog"  id="modal1">

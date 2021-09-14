@@ -10,7 +10,7 @@
 	</ul>
 
 	<div class="tab-content">
-		<!-- New sale -->
+		<!-- Add employer -->
 		<div class="tab-pane show active fade card" id="employees" role="tabpanel">
 			<div class="employees-table table-responsive">
 				<table class="table">
@@ -126,9 +126,13 @@
 			</div>
 		</div>
 
-		<!-- New sale -->
-		<div class="tab-pane fade card" id="salaryCalc" role="tabpanel">
-			ssss
+		<!-- Salaru calculator -->
+		<div class="tab-pane fade card form" id="salaryCalc" role="tabpanel">
+			<div class="card-header">
+                <h5>Añadir producto</h5>
+                <p class="text-sm">Inserte la información especificada</p>
+            </div>
+            aaaaa
 		</div>
 	</div>
 </div>

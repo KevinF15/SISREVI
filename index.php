@@ -125,7 +125,7 @@
 			<!-- Settings panel -->
 			<div id="settings" class="shadow-lg">
 				<i class="fas fa-times close-settings"></i>
-				<div class="card-head">
+				<div class="card-header">
 					<h5>Configuración del Sistema</h5>
 					<p class="text-sm">Opciones generales</p>
 				</div>

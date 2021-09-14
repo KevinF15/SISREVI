@@ -125,7 +125,9 @@
         </div>
         
         <div class="tab-pane fade card" id="orderHistory" role="tabpanel">
-            <h5 class="mb-0">Historial de ventas</h5>
+            <div class="card-header">
+                <h5>Historial de ventas</h5>
+            </div>
             <form method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">
                     <label for="pcodeInput" class="form-label">Intervalo de tiempo</label>
@@ -198,7 +200,9 @@
         </div>
 
         <div class="tab-pane fade card" id="providers" role="tabpanel">
-            <h5 class="mb-0">Historial de devoluciones</h5>
+            <div class="card-header">
+                <h5>Historial de devoluciones</h5>
+            </div>
             <form method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">
                     <label for="pcodeInput" class="form-label">Intervalo de tiempo</label>

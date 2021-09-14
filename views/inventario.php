@@ -56,9 +56,9 @@
         </div>
         <!-- Add product -->
 		<div class="tab-pane fade card card-forms" id="addProduct" role="tabpanel">
-            <div class="card-head">
-                <h5 class="mb-0">Añadir producto</h5>
-                <p class="mb-3 text-sm">Inserte la información especificada</p>
+            <div class="card-header">
+                <h5>Añadir producto</h5>
+                <p class="text-sm">Inserte la información especificada</p>
             </div>
             <form method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">
@@ -101,9 +101,9 @@
         </div>
         <!-- Edit product -->
 		<div class="tab-pane fade card card-forms" id="editProduct" role="tabpanel">
-			<div class="card-head">
-                <h5 class="mb-0">Editar producto</h5>
-                <p class="mb-3 text-sm">Seleccione el producto a editar y modifique su información.</p>
+			<div class="card-header">
+                <h5>Editar producto</h5>
+                <p class="text-sm">Seleccione el producto a editar y modifique su información.</p>
             </div>
             <form method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">

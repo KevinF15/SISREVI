@@ -248,13 +248,15 @@ a {
     box-shadow: var(--card-shadow);
 }
 
-.card-head h5 {
-    font-weight: 700;
-    margin-bottom: 0;
+.card-header {
+    background: #FFFFFF;
+    border: none;
+    padding: 0;
 }
 
-.card-forms {
-    width: 80%;
+.card-header h5 {
+    font-weight: 700;
+    margin-bottom: 0;
 }
 
 .card-mini {
@@ -267,6 +269,10 @@ a {
 }
 
 /*----- Cards with forms -----*/
+
+.card-forms {
+    width: 80%;
+}
 
 .card-forms label, .forms label{
     font-size: 11pt;
