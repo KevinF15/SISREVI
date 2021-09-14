@@ -126,13 +126,52 @@
 			</div>
 		</div>
 
-		<!-- Salaru calculator -->
-		<div class="tab-pane fade card form" id="salaryCalc" role="tabpanel">
+		<!-- Salary calculator -->
+		<div class="tab-pane fade card card-forms" id="salaryCalc" role="tabpanel">
 			<div class="card-header">
-                <h5>Añadir producto</h5>
-                <p class="text-sm">Inserte la información especificada</p>
+                <h5>Calculadora de sueldos</h5>
+                <p class="text-sm">Especifique la fecha y comision a tomar en cuenta.</p>
             </div>
-            aaaaa
+            <form method="POST" class="d-flex flex-column">
+            	<div class="form-group row mb-3">
+                    <div class="col-6">
+                    	<label for="caTimeSInput" class="form-label text-sm">Inicio</label>
+	                    <input type="datetime-local" class="form-control" id="caTimeSInput" name="dfrom" aria-describedby="caTimeSHelp">
+	                    <div id="caTimeSHelp" class="form-text"></div>
+                    </div>
+                    <div class="col-6">
+                    	<label for="caTimeEInput" class="form-label text-sm">Fin</label>
+	                    <input type="datetime-local" class="form-control" id="caTimeEInput" name="dto" aria-describedby="caTimeEHelp">
+	                    <div id="codHelp" class="form-text"></div>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <div class="col-6">
+                    	<label for="searchEmpInput" class="form-label text-sm">Empleado</label>
+                    	<input class="form-control" id="searchEmpInput" list="searchEmp" placeholder="Ingrese el nombre del empleado...">
+	                    <datalist id="searchEmp">
+	                        <option>Juan Luis Perez Peña</option>
+	                        <option>Yusbelys Yesimar Franco Pereira</option>
+	                        <option>Maria Yusepina Oliveira Martinez</option>
+	                        <option>Alan Jose Brito Delgado</option>
+	                    </datalist>
+                    </div>
+                    <div class="col-3">
+                    	<label for="salaryInput" class="form-label text-sm">Sueldo base</label>
+                    	<input type="number" class="form-control" id="salaryInput" name="salary" min="0" step="1" aria-describedby="salaryHelp" placeholder="0.00">
+                    	<div id="salaryHelp" class="form-text"></div>
+                    </div>
+                    <div class="col-3">
+                    	<label for="comInput" class="form-label text-sm">Comisión</label>
+                    	<input type="number" class="form-control" id="comnput" name="com" min="0" step="0.1" aria-describedby="comHelp" placeholder="0.00">
+                    	<div id="comHelp" class="form-text"></div>
+                    </div>
+                </div>
+                <div class="button-row d-flex justify-content-end mt-4">
+                    <input type="reset" class="btn btn-light">
+                    <button type="submit" class="btn btn-gradient-primary-color" name="calc">Calcular</button>
+                </div>
+            </form>
 		</div>
 	</div>
 </div>

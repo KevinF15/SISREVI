@@ -101,4 +101,42 @@ $(document).ready(function() {
 			},
 		}
 	});
+
+
+	function getDateTime() {
+        /*var now     = new Date(); 
+        var year    = now.getFullYear();
+        var month   = now.getMonth()+1; 
+        var day     = now.getDate();
+        var hour    = now.getHours();
+        var minute  = now.getMinutes();
+        var second  = now.getSeconds();
+
+        if (month.toString().length == 1) month = '0'+month;
+        if (day.toString().length == 1) day = '0'+day;
+        if (hour.toString().length == 1) hour = '0'+hour % 12;
+        if (minute.toString().length == 1) minute = '0'+minute;
+        if (second.toString().length == 1) second = '0'+second;
+        
+        var dateTime = year+'/'+month+'/'+day+' '+hour+':'+minute+':'+second;   
+        return dateTime;*/
+        var date = new Date();
+        var days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
+		var months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+		var hour = date.getHours() % 12;
+		var minutes = date.getMinutes();
+		var session = (date.getHours() < 12 ? 'AM' : 'PM');
+
+		// Adjust hours and minutes;
+		hour = (hour < 10 ? `0${hour}` : hour);
+		minutes = (minutes < 10 ? `0${minutes}` : minutes);
+
+		return `<div>
+			<span class="clock-day">${days[date.getDay()]}</span>
+			<h1 class="hour">${hour}:${minutes} ${session}</h1>
+			<span class="clock-date">${date.getDate()} de ${months[date.getMonth()]} del ${date.getFullYear()}</span>
+		</div>`;
+    }
+
+        $('#digital-clock').html(getDateTime());
 });

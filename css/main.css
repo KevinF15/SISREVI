@@ -274,7 +274,7 @@ a {
     width: 80%;
 }
 
-.card-forms label, .forms label{
+.card-forms label, .form label{
     font-size: 11pt;
     font-weight: 700;
 }
@@ -289,6 +289,52 @@ a {
 
 .card-forms input[type=button], .card-forms button, .forms input[type=button], .forms button {
     margin: 0 10px;
+}
+
+/*----- Flipping card -----*/
+
+.card.flipping-card {
+    -webkit-perspective: 150rem;
+    -moz-perspective: 150rem;
+    perspective: 150rem;
+    position: relative;
+
+    background: none;
+    box-shadow: none;
+}
+
+.flipping-card .card-side {
+    -webkit-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: linear-gradient(133deg, rgba(56,63,107,1) 0%, rgba(22,25,42,1) 100%);
+    border-radius: var(--card-radius);
+    color: #FFFFFF;
+    box-shadow: var(--card-shadow);
+}
+
+.flipping-card:hover .card-front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.flipping-card .card-back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.flipping-card:hover .card-back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
 }
 
 /*----- Quick info (principal.php) -----*/
@@ -325,11 +371,79 @@ a {
     justify-self: right;
 }
 
+/*----- Company info (principal.php) -----*/
+
+.bg-company-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: linear-gradient(133deg, rgba(56,63,107,1) 0%, rgba(22,25,42,1) 100%);
+    border-radius: var(--card-radius);
+    z-index: -1;
+    opacity: 0.7;
+}
+
+.flipping-card .map-location {
+    background-image: url('../media/location_map.jpg');
+    background-position: center center;
+}
+
+.company-info .card-header, .company-info .card-body {
+    background: transparent;
+}
+
+#digital-clock {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    font-weight: 700;
+}
+
+#digital-clock h1 {
+    font-size: 50pt;
+    margin: 0;
+}
+
+#digital-clock .clock-day, #digital-clock .clock-date {
+    font-size: 15pt;
+}
+
 /*----- Graphics (principal.php) -----*/
 
 .sales-graph {
     padding: 24px;
     min-width: 550px;
+}
+
+/*----- Direct access (principal.php) -----*/
+
+.direct-access {
+    text-align: center;
+}
+
+.direct-access .nav-item {
+    margin: 0 10px;
+}
+
+.direct-access .dl-border {
+    border: 1px solid #178CE8;
+    display: inline-block;
+    padding: 6px;
+    border-radius: 100%;
+}
+
+.direct-access li i {
+    background: var(--primary-gradient);
+    border-radius: 100%;
+    width: 48px;
+    text-align: center;
+    line-height: 48px;
+    color: #FFF;
+    font-size: 14pt;
 }
 
 /***************************
