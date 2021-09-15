@@ -102,24 +102,11 @@ $(document).ready(function() {
 		}
 	});
 
+	/***************************************
+               Datetime script
+	***************************************/
 
 	function getDateTime() {
-        /*var now     = new Date(); 
-        var year    = now.getFullYear();
-        var month   = now.getMonth()+1; 
-        var day     = now.getDate();
-        var hour    = now.getHours();
-        var minute  = now.getMinutes();
-        var second  = now.getSeconds();
-
-        if (month.toString().length == 1) month = '0'+month;
-        if (day.toString().length == 1) day = '0'+day;
-        if (hour.toString().length == 1) hour = '0'+hour % 12;
-        if (minute.toString().length == 1) minute = '0'+minute;
-        if (second.toString().length == 1) second = '0'+second;
-        
-        var dateTime = year+'/'+month+'/'+day+' '+hour+':'+minute+':'+second;   
-        return dateTime;*/
         var date = new Date();
         var days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
 		var months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
@@ -138,5 +125,5 @@ $(document).ready(function() {
 		</div>`;
     }
 
-        $('#digital-clock').html(getDateTime());
+    $('#digital-clock').html(getDateTime());
 });
