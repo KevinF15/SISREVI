@@ -263,30 +263,30 @@
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					  </div>
 					  <div class="modal-body">
-                                    <form method="POST" class="d-flex flex-column">
+                                    <form action="" method="POST" class="d-flex flex-column">
                                         <div>
-                                            <label for="pcodeInput" class="form-label">RIF</label>
-                                            <input type="text" class="form-control" id="pcodeInput" name="cod" aria-describedby="codHelp" placeholder="j-000000000">
-                                            <div id="codHelp" class="form-text"></div>
+                                            <label for="codeInput" class="form-label">RIF</label>
+                                            <input type="text" class="form-control" id="codeInput" name="cod" aria-describedby="codHelp" placeholder="J-00000000" pattern="[Jj]{1}[-]{1}[0-9]{7,8}" required maxlength="10" minlength="3" title="El formato debe ser J-1234567">
+                                            <span id="scodeInput"></span>
                                         </div>
                                         <div>
                                             <label for="pnameInput" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" id="pnameInput" name="nombre" aria-describedby="nameHelp">
-                                            <div id="nameHelp" class="form-text"></div>
+                                            <input type="text" class="form-control" id="pnameInput" name="nombre" aria-describedby="pnameHelp" pattern="[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,40}" required maxlength="40" minlength="3" title="Min 3 caranteres - Max 40 caracteres">
+                                            <span id="spnameInput"></span>
                                         </div>
                                         <div>
-                                            <label for="pnameInput" class="form-label">Telefono</label>
-                                            <input type="text" class="form-control" id="existInput" name="existencia" min="0" step="1" aria-describedby="existHelp">
-                                            <div id="existHelp" class="form-text"></div>
+                                            <label for="telfInpu" class="form-label">Telefono</label>
+                                            <input type="text" class="form-control" id="telfInpu" name="telefono" min="0" step="1" aria-describedby="existHelp" pattern="[0-9]{11}" required maxlength="11" minlength="11" title="Solo 11 digitos">
+                                            <span id="stelfInpu"></span>
                                         </div>
                                         <div>
-                                            <label for="pnameInput" class="form-label">Direccion</label>
-                                            <textarea class="form-control" id="pdescInput" name="descripcion" aria-describedby="descHelp"></textarea>
-                                            <div id="descHelp" class="form-text"></div>
+                                            <label for="pdescInput" class="form-label">Direccion</label>
+                                            <textarea class="form-control" id="pdescInput" name="descripcion" aria-describedby="descHelp" pattern="[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{0,100}" required maxlength="100" minlength="0" title="Max 100 caracteres"></textarea>
+                                            <span id="spdescInput"></span>
                                         </div>
                                         <div class="button-row d-flex justify-content-end mt-4">
                                             <input type="reset" class="btn btn-light">
-                                            <button type="submit" class="btn btn-gradient-primary-color" name="Registar">Registar</button>
+                                            <button type="submit" class="btn btn-gradient-primary-color" id="registars" name="Registar">Registar</button>
                                         </div>
                                     </form>
 					  </div>
