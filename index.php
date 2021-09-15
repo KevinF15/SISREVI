@@ -142,6 +142,7 @@
 		<!-- Load plugins -->
 		<script type="text/javascript" src="js/plugins/chartjs.min.js" crossorigin="anonymous"></script>
 
+		<script type="text/javascript" src="js/validations.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
 	</body>
 </html>
