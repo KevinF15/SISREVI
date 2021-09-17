@@ -75,7 +75,7 @@
 							<div class="modal-header">
 								<div>
 									<h5 class="modal-title" id="exampleModalLabel">Agregar empleado</h5>
-									<p class="text-sm">Inserte la información especificada</p>
+									<p class="text-sm">Inserte la información especificada.</p>
 								</div>
 								<i class="fas fa-times" data-bs-dismiss="modal" aria-label="Close"></i>
 					  		</div>
@@ -84,14 +84,14 @@
 								<form method="POST" class="forms d-flex flex-column">
 									<div class="form-group mb-3">
 					                    <label for="enameInput" class="form-label">Nombre</label>
-					                    <input type="text" class="form-control" id="enameInput" name="nombre" aria-describedby="nameHelp">
-					                    <div id="nameHelp" class="form-text"></div>
+					                    <input type="text" class="form-control" id="enameInput" name="nombre" aria-describedby="enameHelp">
+					                    <div id="enameHelp" class="form-text"></div>
 					                </div>
 						            <div class="form-group row mb-3">
 					                    <div class="col-6">
 					                        <label for="edocInput" class="form-label">Cedula</label>
-					                        <input type="number" class="form-control" id="edocInput" name="doc" aria-describedby="docHelp">
-					                        <div id="docHelp" class="form-text"></div>
+					                        <input type="number" class="form-control" id="edocInput" name="doc" aria-describedby="edocHelp">
+					                        <div id="edocHelp" class="form-text"></div>
 					                    </div>
 					                    <div class="col-6">
 					                        <label for="echargeInput" class="form-label">Cargo</label>
@@ -105,13 +105,13 @@
 					                <div class="form-group row mb-3">
 					                    <div class="col-8">
 					                        <label for="edirInput" class="form-label">Dirección</label>
-					                        <textarea class="form-control" id="edirInput" name="direccion" aria-describedby="dirHelp"></textarea>
-					                        <div id="dirHelp" class="form-text"></div>
+					                        <textarea class="form-control" id="edirInput" name="dir" aria-describedby="edirHelp"></textarea>
+					                        <div id="edirHelp" class="form-text"></div>
 					                    </div>
 					                    <div class="col-4">
-					                        <label for="etelInput" class="form-label">Telefono</label>
-					                        <input type="number" class="form-control" id="etelInput" name="telefono" aria-describedby="telHelp" row="1">
-					                        <div id="telHelp" class="form-text"></div>
+					                        <label for="etelInput" class="form-label">Teléfono</label>
+					                        <input type="text" class="form-control" id="etelInput" name="telefono" aria-describedby="etelHelp">
+					                        <div id="etelHelp" class="form-text"></div>
 					                    </div>
 					                </div>
 								</form>
@@ -163,7 +163,7 @@
                     </div>
                     <div class="col-3">
                     	<label for="comInput" class="form-label text-sm">Comisión</label>
-                    	<input type="number" class="form-control" id="comnput" name="com" min="0" step="0.1" aria-describedby="comHelp" placeholder="0.00">
+                    	<input type="number" class="form-control" id="comInput" name="com" min="0" step="0.1" aria-describedby="comHelp" placeholder="0.00">
                     	<div id="comHelp" class="form-text"></div>
                     </div>
                 </div>

@@ -63,8 +63,8 @@
             <form action="" method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">
                     <label for="pcodeInput" class="form-label">Código de producto</label>
-                    <input type="text" class="form-control" id="pcodeInput" name="cod" aria-describedby="codHelp" placeholder="0000000000" disabled>
-                    <div id="codHelp" class="form-text"></div>
+                    <input type="text" class="form-control" id="pcodeInput" name="cod" aria-describedby="pcodHelp" placeholder="0000000000" disabled>
+                    <div id="pcodHelp" class="form-text"></div>
                 </div>
 
                 <div class="form-group row mb-3">
@@ -74,7 +74,7 @@
                         <div id="pnameHelp" class="form-text"></div>
                     </div>
                     <div class="col-3">
-                        <label for="existInput" class="form-label">Cantidad</label>
+                        <label for="existInput" class="form-label">Existencia</label>
                         <input type="number" class="form-control" id="existInput" name="existencia" min="0" step="1" aria-describedby="existHelp">
                         <div id="existHelp" class="form-text"></div>
                     </div>
@@ -107,38 +107,37 @@
             </div>
             <form method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">
-                    <label for="pcodeInput" class="form-label">Producto</label>
-                    <input class="form-control" list="searchCodProd" placeholder="Ingrese codigo o nombre de producto...">
-                    <datalist id="searchCodProd">
+                    <label for="searchCodProd" class="form-label">Producto</label>
+                    <input class="form-control" list="searchCodProdInput" placeholder="Ingrese codigo o nombre de producto...">
+                    <datalist id="searchCodProdInput">
                         <option>00001 - Termostato</option>
                         <option>00002 - Platano</option>
                     </datalist>
-                    <div id="codHelp" class="form-text"></div>
                 </div>
 
                 <div class="form-group row mb-3">
                     <div class="col-9">
-                        <label for="pnameInput" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="pnameInput" name="nombre" aria-describedby="nameHelp">
-                        <div id="nameHelp" class="form-text"></div>
+                        <label for="pditnameInput" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="pditnameInput" name="nombre" aria-describedby="pditnameHelp">
+                        <div id="pditnameHelp" class="form-text"></div>
                     </div>
                     <div class="col-3">
-                        <label for="pnameInput" class="form-label">Cantidad</label>
-                        <input type="number" class="form-control" id="existInput" name="existencia" min="0" step="1" aria-describedby="existHelp">
-                        <div id="existHelp" class="form-text"></div>
+                        <label for="pditExistInput" class="form-label">Existencia</label>
+                        <input type="number" class="form-control" id="pditExistInput" name="existencia" min="0" step="1" aria-describedby="pditExistHelp">
+                        <div id="pditExistHelp" class="form-text"></div>
                     </div>
                 </div>
 
                 <div class="form-group row mb-3">
                     <div class="col-9">
-                        <label for="pnameInput" class="form-label">Descripción</label>
-                        <textarea class="form-control" id="pdescInput" name="descripcion" aria-describedby="descHelp"></textarea>
-                        <div id="descHelp" class="form-text"></div>
+                        <label for="pditDescInput" class="form-label">Descripción</label>
+                        <textarea class="form-control" id="pditDescInput" name="descripcion" aria-describedby="pditDescHelp"></textarea>
+                        <div id="pditDescHelp" class="form-text"></div>
                     </div>
                     <div class="col-3">
-                        <label for="precunitInput" class="form-label">Precio unitario</label>
-                        <input type="number" class="form-control" id="precunitInput" name="prec_unit" min="1" step="0.01" aria-describedby="existHelp">
-                        <div id="nameHelp" class="form-text"></div>
+                        <label for="ditprecunitInput" class="form-label">Precio unitario</label>
+                        <input type="number" class="form-control" id="ditprecunitInput" name="prec_unit" min="1" step="0.01" aria-describedby="ditprecunitHelp">
+                        <div id="ditprecunitHelp" class="form-text"></div>
                     </div>
                 </div>
 

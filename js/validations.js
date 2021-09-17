@@ -1,131 +1,78 @@
 $(function () {
-	// Reglas para validaciones
+	/*
+	*	Validations rules
+	*	
+	*	re: Set the regular expression.
+	*	message: Specify the error message for when the validation returns false.
+	* 	clones: Helps the rule work on other inputs with different names but with the same validation
+	*/
 	var validations = {
-		pnameInput: {
+		enameInput: {
 			required: true,
 			re: /^[A-Za-z\u00f1\u00d1\u00E0-\u00FC\s]{0,50}$/,
-			message: "El nombre excede el numero de caracteres permitidos.",
+			message: "El nombre no puede contener números, ni caracteres especiales y tampoco debe tener más de 50 caracteres.",
+			clones: ['provNameInput'],
 		},
-		precunitInput: {
+		edocInput: {
 			required: true,
-			re: /^[1-9]{0,12}([.][0-9]{2,2})?$/,
-			message: "El monto debe ser mayor que 0",
+			re: /^[0-9]{7,8}$/,
+			message: "Cedula inválida: Verifique e introdúzcala de nuevo.",
+		},
+		etelInput: {
+			required: true,
+			re: /^[0-9]{4}[-]{1}[0-9]{7}$/,
+			message: "Teléfono inválido: El formato debe ser 04XX-XXXXXXX o 02XX-XXXXXXX",
+			clones: ['provTelfInput'],
+		},
+		pnameInput: {
+			required: true,
+			re: /^[A-Za-z0-9-#_\u00f1\u00d1\u00E0-\u00FC\s\b]{3,40}$/,
+			message: "Algunos caracteres ingresados no estan permitidos y solo se permiten de 3 a 40 caracteres.",
+			clones: ['pditnameInput'],
 		},
 		pdescInput: {
 			required: true,
 			re: /^[A-Za-z0-9\u00f1\u00d1\u00E0-\u00FC\s]{0,100}$/,
 			message: "Se ha excedido el limite de caracteres permitidos (maximo: 100).",
+			clones: ['pditDescInput', 'edirInput', 'provDescInput'],
+		},
+		precunitInput: {
+			required: true,
+			re: /^[1-9]{0,12}([.][0-9]{2,2})?$/,
+			message: "El monto debe ser mayor que 0.",
+			clones: ['ditprecunitInput', 'salaryInput', 'comInput'],
+		},
+		provRIFInput: {
+			required: true,
+			re: /^[Jj0-9-\b]{9,10}$/,
+			message: "RIF inválido: El formato debe ser J-0000000",
 		},
 	}
 
-	// Verificar lo escrito en cada <input> / <textarea>
 	$('input, textarea').keyup(function() {
 		var inputId = $(this).attr('id');
 		var input = $(`#${inputId}`)
 
-		// Lee todas las reglas de validaciones
 		for (const key in validations) {
 			var val = validations[key];
 
-			// Al hayar la regla que concuerde con el id del inpuut/textarea empieza la comprobacion
 			if (key === inputId) {
 	    		if ((val.re).test(input.val())) {
-	    			// Si la expresion regular y el valor del campo concuerdan, no pasa nada c:
 	    			$(`#${inputId.slice(0, -5)}Help`).text('');
 	    		} else {
-	    			// De lo contrario, muestra el mensaje de error
 	    			$(`#${inputId.slice(0, -5)}Help`).text(val.message);
+	    		}
+	    	} else if (val.clones) { // Para despues: Hacer la validacion funciones
+	    		for (const i in val.clones) {
+	    			if (val.clones[i] == inputId) {
+	    				if ((val.re).test(input.val())) {
+			    			$(`#${inputId.slice(0, -5)}Help`).text('');
+			    		} else {
+			    			$(`#${inputId.slice(0, -5)}Help`).text(val.message);
+			    		}
+	    			}
 	    		}
 	    	}
 		}
 	});
-});
-
-$(document).ready(function(){
-
-	$("#pnameInput").on("keypress",function(e){
-		codigo = e.keyCode;
-		er = /^[A-Za-z0-9-#_ \b]*$/;
-		tecla = String.fromCharCode(codigo);
-		bien = er.test(tecla);
-		if(!bien){
-			e.preventDefault();
-		}
-	});
-	
-	$("#pnameInput").on("keyup",function(){
-		er = /^[A-Za-z0-9-#_ \b]{3,40}$/;
-		bien = er.test($(this).val());
-		if(bien){
-			$("#spnameInput").text("");
-		}
-		else{
-			$("#spnameInput").text("Min 3 caracteres - Max 40 caracteres");
-		}
-
-	});
-	
-	$("#telfInpu").on("keypress",function(e){
-		codigo = e.keyCode;
-		er = /^[0-9\b]*$/;
-		tecla = String.fromCharCode(codigo);
-		bien = er.test(tecla);
-		if(!bien){
-			e.preventDefault();
-		}
-	});
-	
-	$("#telfInpu").on("keyup",function(){
-		er = /^[0-9\b]{11}$/;
-		bien = er.test($(this).val());
-		if(bien){
-			$("#stelfInpu").text("");
-		}
-		else{
-			$("#stelfInpu").text("Solo 11 digitos");
-		}
-	});
-
-	$("#pdescInput").on("keypress",function(e){
-		codigo = e.keyCode;
-		er = /^[A-Za-z0-9-#_ \b]*$/;
-		tecla = String.fromCharCode(codigo);
-		bien = er.test(tecla);
-		if(!bien){
-			e.preventDefault();
-		}
-	});
-	
-	$("#pdescInput").on("keyup",function(){
-		er = /^[A-Za-z0-9-#_ \b]{0,100}$/;
-		bien = er.test($(this).val());
-		if(bien){
-			$("#spdescInput").text("");
-		}
-		else{
-			$("#spdescInput").text("Max 100 caracteres");
-		}
-	});
-
-	$("#codeInput").on("keypress",function(e){
-		codigo = e.keyCode;
-		er = /^[Jj0-9-\b]*$/;
-		tecla = String.fromCharCode(codigo);
-		bien = er.test(tecla);
-		if(!bien){
-			e.preventDefault();
-		}
-	});
-	
-	$("#codeInput").on("keyup",function(){
-		er = /^[Jj0-9-\b]{9,10}$/;
-		bien = er.test($(this).val());
-		if(bien){
-			$("#scodeInput").text("");
-		}
-		else{
-			$("#scodeInput").text("J-0000000");
-		}
-	});
-
 });
