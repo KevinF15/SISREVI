@@ -1,6 +1,10 @@
 $(document).ready(function() {
 	// Set the actual page
-	$(`a.${actual_page}`).addClass('active');
+	 $(`a.${actual_page}`).parent().addClass('active');
+	 $(`a.${actual_page}`).closest(".collapse").addClass('show');
+
+	// Set actual navigation item
+	$(`a.${actual_nav}`).addClass('active');
 
 	// Inicialize tooltips
 	$('[data-bs-toggle="tooltip"]').tooltip();
@@ -20,9 +24,9 @@ $(document).ready(function() {
 	***************************************/
 
 	// Store the currently tab in the window.hash
-	/*$("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+	$("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
 	  window.location.hash = $(e.target).attr("href").substr(1);
-	});*/
+	});
 
 	// Switch to the currently selected tab
 	/*var current_tab = window.location.hash || null;

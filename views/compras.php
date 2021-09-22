@@ -1,42 +1,42 @@
-<div class="sales-panel">
+<div class="orders-panel">
 	<!-- Tabs -->
 	<ul class="nav nav-tabs flex-colum justify-content-around" role="tablist">
 		<li class="nav-item" role="presentation">
-			<a href="#newSale" class="nav-link" data-bs-toggle="tab" data-bs-target="#newSale" type="button" role="tab" aria-selected="false"><i class="fas fa-shopping-cart"></i> Nueva venta</a>
+			<a href="#newOrder" class="nav-link active" data-bs-toggle="tab" data-bs-target="#newOrder" type="button" role="tab" aria-selected="false"><i class="fas fa-truck-loading"></i> Realizar pedido</a>
 		</li>
 		<li class="nav-item" role="presentation">
-			<a href="#salesHistory" class="nav-link active" data-bs-toggle="tab" data-bs-target="#salesHistory" type="button" role="tab" aria-selected="true"><i class="fas fa-book"></i> Historial</a>
+			<a href="#orderHistory" class="nav-link" data-bs-toggle="tab" data-bs-target="#orderHistory" type="button" role="tab" aria-selected="true"><i class="fas fa-book"></i> Historial</a>
 		</li>
 	</ul>
-
 	<div class="tab-content">
-		<div class="tab-pane fade show active card" id="newSale" role="tabpanel">
-			<form id="newSaleForm" method="POST" class="d-flex flex-column">
+		<!-- New order -->
+		<div class="tab-pane fade show active card" id="newOrder" role="tabpanel">
+			<form id="addOrderForm" method="POST" class="d-flex flex-column">
 				<ul class="nav-op-ven">
 					<li>
 						<div class="form-group mb-3">
-							<label for="searchClientInput" class="form-label">Cliente</label>
-							<input class="form-control" list="searchClientInput" placeholder="Cedula / RIF" required>
-		                    <datalist id="searchClientInput">
+							<label for="searchProviderInput" class="form-label">Proveedor</label>
+							<input class="form-control" list="searchProviderInput" placeholder="Cedula / RIF" required>
+		                    <datalist id="searchProviderInput">
 		                        <option>V-15785658 - Fernando Garcia</option>
 		                        <option>J-30415457-5 - Filomena Sanchez</option>
 		                    </datalist>
 						</div>
 					</li>
 					<li id="pelo">
-						<label for="clientName" class="form-label">Nombre</label> <br>
-						<a id="clientName">
+						<label class="form-label">Nombre</label> <br>
+						<a id="providerName">
 							<?php 
-								echo "Stiven de minecraft";
+								echo "kevin de minecraft";
 							?>
 						</a>
 					</li>
-				</ul> 
-
+				</ul>
+				
 				<!-- Button: Add product -->
 				<div data-bs-toggle="modal" data-bs-target="#addProdModal">
 					<div class="btn-float" data-bs-toggle="tooltip" data-bs-placement="left" title="Agregar producto">              
-						<i class="fas fa-cart-plus"></i>
+						<i class="fas fa-plus"></i>
 					</div>
 				</div>
 
@@ -87,44 +87,47 @@
 					</div>
 				</div>
 
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Nombre</th>
-							<th>Descripcion</th>
-							<th>Cantidad</th>
-							<th>Precio c/u</th>
-							<th>IVA</th>
-							<th>total</th>
-							<td></td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="ventas">
-							<td>termostaro</td>
-							<td>P1125 maxwel para neveras de 1-3 puertas</td>
-							<td><input type="number" class="form-control productAmount" id="salesAmInput" name="existencia" min="1" step="1" required></td>
-							<td>234234234$</td>
-							<td>mucha plata</td>
-							<td></td>
-							<td><i class="fas fa-trash-alt" href="#editProduct" id="papelera"></i></td>
-						</tr>
-						<tr class="ventas">
-							<td>platano</td>
-							<td>verde</td>
-							<td><input type="number" class="form-control productAmount" id="salesAmInput" name="existencia" min="1" step="1" required></td>
-							<td>23423434$</td>
-							<td>mucha money</td>
-							<td></td>
-							<td><i class="fas fa-trash-alt" href="#editProduct" id="papelera"></i></td>
-						</tr>
-					</tbody>
-				</table>
-					<table>
+				<div class="order table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Nombre</th>
+								<th>Descripcion</th>
+								<th>Cantidad</th>
+								<th>Precio c/u</th>
+								<th>IVA</th>
+								<th>total</th>
+								<td></td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="ventas">
+								<td>termostaro</td>
+								<td>P1125 maxwel para neveras de 1-3 puertas</td>
+								<td><input type="number" class="form-control productAmount" id="salesAmInput" name="existencia" min="1" step="1" required></td>
+								<td>234234234$</td>
+								<td>mucha plata</td>
+								<td></td>
+								<td><i class="fas fa-trash-alt" href="#editProduct" id="papelera"></i></td>
+							</tr>
+							<tr class="ventas">
+								<td>platano</td>
+								<td>verde</td>
+								<td><input type="number" class="form-control productAmount" id="salesAmInput" name="existencia" min="1" step="1" required></td>
+								<td>23423434$</td>
+								<td>mucha money</td>
+								<td></td>
+								<td><i class="fas fa-trash-alt" href="#editProduct" id="papelera"></i></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<table>
 					<tr>
 						<td>
 							<ul class="nav-op-ven">
-								 <li>
+								<li>
 									<button type="submit" class="btn btn-gradient-primary-color" name="registrar">Registrar</button>
 								</li>
 							</ul>
@@ -139,32 +142,34 @@
 				</table>
 			</form>
 		</div>
-			
-		<div class="tab-pane fade card" id="salesHistory" role="tabpanel">
+
+		<!-- Order history -->
+		<div class="tab-pane fade card" id="orderHistory" role="tabpanel">
 			<div class="card-header">
-				<h5>Historial de ventas</h5>
+				<h5>Historial de pedidos</h5>
 			</div>
-			<form id="salesHistoryForm" method="POST" class="d-flex flex-column">
+			<form id="histOrdForm" method="POST" class="d-flex flex-column">
 				<div class="form-group mb-3">
 					<label class="form-label">Intervalo de tiempo</label>
 					<div class="form-group row">
-						<div class="col-3">
-							<input type="datetime-local" class="form-control" id="sHistoryStart" name="start">
+							<div class="col-3">
+								<input type="datetime-local" class="form-control" id="oHistoryStart" name="start">
+							</div>
+							<div class="col-3">
+								<input type="datetime-local" class="form-control" id="oHistoryEnd" name="end">
+							</div>
+							<div class="col-3">
+								<button type="submit" class="btn btn-gradient-primary-color" name="Enivir">Enviar</button>
+							</div>
 						</div>
-						<div class="col-3">
-							<input type="datetime-local" class="form-control" id="sHistoryEnd" name="end">
-						</div>
-						<div class="col-3">
-							<button type="submit" class="btn btn-gradient-primary-color" name="Enivir">Enviar</button>
-						</div>
-					</div>
+					<div id="codHelp" class="form-text"></div>
 				</div>
 			</form>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Numero de factura</th>
-						<th>Metodo de pago</th>
+						<th>Codigo</th>
+						<th>Proveedor</th>
 						<th>ToTal</th>
 						<th>Fecha</th>
 						<td></td>
@@ -178,7 +183,7 @@
 						<td>ayer</td>
 						<td>
 							<i class="fas fa-eye" href="#editProduct" id="papelera"></i>
-							<i class="fas fa-backspace" id="papelera"></i>
+							<i class="fas fa-trash-alt" id="papelera"></i>
 						</td>
 					</tr>
 					<tr class="ventas">
@@ -188,31 +193,11 @@
 						<td>3H</td>
 						<td>
 							<i class="fas fa-eye" href="#editProduct" id="papelera"></i>
-							<i class="fas fa-backspace" id="papelera"></i>
+							<i class="fas fa-trash-alt" id="papelera"></i>
 						</td>
 					</tr>
 				</tbody>
 			</table>
-			<div class="container" id="tolaes">
-				<div class="row">
-					<div class="col">
-						<h6>TOTAL GENERAL:</h6>
-						<h6>Nada tamos pelaos :,v</h6>
-					</div>
-					<div class="col">
-						<h6>TOTAL DIVISA:</h6>
-						<h6>me comi una banana</h6>
-					</div>
-					<div class="col">
-						<h6>TOTAL PUNTO:</h6>
-						<h6>joer quiero money</h6>
-					</div>
-					<div class="col">
-						<h6>TOTAL EFECTIVO:</h6>
-						<h6>una locha</h6>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 </div>

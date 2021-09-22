@@ -6,13 +6,17 @@
 	}
 
 	$ventanas = array(
-		"principal" => "Página principal",
-		"ventas" => "Registro de ventas",
-		"inventario" => "Control de inventario",
-		"pedidos" => "Registro de compras",
-		"empleados" => "Gestión de empleados",
-		"respaldo" => "Copia de Seguridad y Restauración",
-		"ayuda" => "Soporte",
+		"principal" => array("Inicio", "Página principal"),
+		"clientes" => array("Registros", "Registro de Clientes"),
+		"proveedores" => array("Registros", "Registro de Proveedores"),
+		"empleados" => array("Registros", "Gestión de Empleados"),
+		"productos" => array("Registros", "Gestión de Productos"),
+		"compras" => array("Movimientos", "Compras"),
+		"ventas" => array("Movimientos", "Ventas"),
+		"inventario" => array("Reportes", "Inventario"),
+		"caja" => array("Reportes", "Cuadre de caja"),
+		"respaldo" => array("Respaldo", "Copia de Seguridad y Restauración"),
+		"ayuda" => array("Soporte", "Guías y ayuda"),
 	);
 ?>
 
@@ -43,6 +47,8 @@
 
 			// Gets the variable $pagina and converts it to a javascript variable
 			var actual_page = (!getQueryStringValue("pagina") ? "inicio" : getQueryStringValue("pagina"));
+			var actual_nav = ('<?=$ventanas[$pagina][0]?>');
+			actual_nav = `${actual_nav[0].toLowerCase()}${actual_nav.slice(1)}`;
 		</script>
 	</head>
 	<body>
@@ -56,26 +62,48 @@
 			    </div>
 			    <!-- Sidebar navigation -->
 			    <nav class="sidenav">
-					<a class="nav-link principal" href="?pagina=principal">
+					<a class="nav-link inicio" href="?pagina=principal">
 						<i class="fas fa-home"></i> Inicio
 					</a>
-					<a class="nav-link ventas" href="?pagina=ventas">
-						<i class="fas fa-shopping-cart"></i> Ventas
+					
+					<a class="nav-link registros" data-bs-toggle="collapse" href="#registerMenu" role="button" aria-expanded="false" aria-controls="registerMenu">
+						<i class="fas fa-clipboard-list"></i> Registros <span class="down fas fa-angle-down"></span>
 					</a>
-					<a class="nav-link inventario" href="?pagina=inventario">
-						<i class="fas fa-warehouse"></i> Inventario
-					</a>
+					<div class="collapse sidebar-collapse" id="registerMenu">
+						<ul>
+							<li><a class="clientes" href="?pagina=clientes"><i class="fas fa-user"></i> Clientes</a></li>
+							<li><a class="proveedores" href="?pagina=proveedores"><i class="fas fa-people-carry"></i> Proveedores</a></li>
+							<li><a class="empleados" href="?pagina=empleados"><i class="fas fa-user-tie"></i> Empleados</a></li>
+							<li><a class="productos" href="?pagina=productos"><i class="fas fa-box"></i> Productos</a></li>
+						</ul>
+					</div>
 
-					<a class="nav-link pedidos" href="?pagina=pedidos">
-						<i class="fas fa-luggage-cart"></i> Pedidos
+					<a class="nav-link movimientos" data-bs-toggle="collapse" href="#movMenu" role="button" aria-expanded="false" aria-controls="movMenu">
+						<i class="fas fa-book"></i> Movimientos <span class="down fas fa-angle-down">
 					</a>
+					<div class="collapse sidebar-collapse" id="movMenu">
+						<ul>
+							<li><a class="compras" href="?pagina=compras"><i class="fas fa-shopping-basket"></i> Compras</a></li>
+							<li><a class="ventas" href="?pagina=ventas"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
+						</ul>
+					</div>
+
+					<a class="nav-link reportes" data-bs-toggle="collapse" href="#reportsMenu" role="button" aria-expanded="false" aria-controls="reportsMenu">
+						<i class="fas fa-file-alt"></i> Reportes <span class="down fas fa-angle-down">
+					</a>
+					<div class="collapse sidebar-collapse" id="reportsMenu">
+						<ul>
+							<li><a class="inventario" href="?pagina=inventario"><i class="fas fa-warehouse"></i> Inventario</a></li>
+							<li><a class="caja" href="?pagina=caja"><i class="fas fa-cash-register"></i> Cuadre de caja</a></li>
+						</ul>
+					</div>
 
 					<h6 class="sidebar-category">Otros</h6>
 
 					<a class="nav-link respaldo" href="?pagina=respaldo">
 						<i class="fas fa-server"></i> Respaldo
 					</a>
-					<a class="nav-link ayuda" href="?pagina=ayuda">
+					<a class="nav-link soporte" href="?pagina=ayuda">
 						<i class="fas fa-info-circle"></i> Ayuda
 					</a>
 				</nav>
@@ -83,24 +111,14 @@
 
 			<header id="header">
 				<div class="headerdir">
-				 	<div class="cat">Inicio</div>
-				 	<div class="page"><?=$ventanas[$pagina];?></div>
+				 	<div class="cat"><?=$ventanas[$pagina][0];?></div>
+				 	<div class="page"><?=$ventanas[$pagina][1];?></div>
 				</div>
 				<nav class="headernav">
 				   	<ul>
-				    	<li>
-				    		<i class="fas fa-bell"></i>
-				    	</li>
 				    	<!-- Configuration menu -->
-				    	<li class="dropdown">
-				    		<i class="fas fa-cog" id="configMenu" data-bs-toggle="dropdown" aria-expanded="false"></i>
-				    		<ul class="dropdown-menu" aria-labelledby="configMenu">
-				    			<h6 class="dropdown-header">Opciones administrativas</h6>
-							    <li><a class="dropdown-item" href="?pagina=empleados"><i class="fas fa-user-tie"></i> Gestionar empleados</a></li>
-							    <li><a class="dropdown-item" href="?pagina=empleados#sueldos"><i class="fas fa-calculator"></i> Calcular sueldos</a></li>
-							    <h6 class="dropdown-header">Otras opciones</h6>
-							    <li class="open-settings"><a class="dropdown-item"><i class="fas fa-sliders-h"></i> Ajustes de sistema</a></li>
-							  </ul>
+				    	<li>
+				    		<i class="fas fa-cog open-settings"></i>
 				    	</li>
 				    	<!-- User profile menu -->
 				    	<li class="dropdown user-profile">
@@ -141,6 +159,7 @@
 
 		<!-- Load plugins -->
 		<script type="text/javascript" src="js/plugins/chartjs.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/plugins/sweetalert2.all.min.js" crossorigin="anonymous"></script>
 
 		<script type="text/javascript" src="js/validations.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>

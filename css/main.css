@@ -3,6 +3,7 @@
     --primary-gradient: linear-gradient(133deg, rgba(23,191,232,1) 0%, rgba(23,113,232,1) 100%);
     --font-color: #67748E;
     --font-color-dark: #344767;
+    --font-color-light: #828EA1;
 
     /*-- Card style --*/
     --card-radius: 10px;
@@ -93,7 +94,7 @@ a {
 /*----- WEB-GRID -----*/
 
 #wrapper {
-    grid-template-columns: 250px repeat(3, 1fr);
+    grid-template-columns: 265px repeat(3, 1fr);
     grid-template-rows: minmax(90px, 90px) repeat(2, auto);
 
     grid-template-areas: "sidebar header header header"
@@ -128,7 +129,7 @@ a {
 #sidebar h6.sidebar-category {
     margin: 15px 30px;
     font-weight: 700;
-    color:  #828EA1;
+    color: var(--font-color-light);
 }
 
 /*----- Navigation -----*/
@@ -153,6 +154,12 @@ a {
     box-shadow: 0 4px 6px -1px rgb(20 20 20 / 10%), 0 1px 4px -1px rgb(20 20 20 / 7%) !important;
 }
 
+.sidenav .nav-link .down {
+    float: right;
+    line-height: 40px;
+    color: var(--font-color-light) !important;
+}
+
 .sidenav .nav-link.active i {
     background-image: linear-gradient(310deg, var(--primary-color) 0%, var(--primary-color) 100%);
     color:  #FFF;
@@ -173,6 +180,25 @@ a {
     background:  #FFF;
     font-weight: 700;
     box-shadow: var(--card-shadow);
+}
+
+/*----- Collapses -----*/
+
+.sidebar-collapse ul li {
+    margin: 5px 0;
+    list-style-type: none;
+    position: relative;
+}
+
+.sidebar-collapse li.active {
+    font-weight: 700;
+    color: var(--font-color-dark) !important;
+}
+
+.sidebar-collapse ul li a i {
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
 }
 
 /***************************
@@ -290,6 +316,14 @@ a {
 .card-forms input[type=button], .card-forms button, .forms input[type=button], .forms button {
     margin: 0 10px;
 }
+
+input.productAmount {
+    width: 100px;
+}
+
+/*input.edocprefix {
+    width: 70px;
+}*/
 
 /*----- Flipping card -----*/
 
@@ -614,6 +648,14 @@ a {
     color: #FFF;
     border-radius: 10px;
     padding: 2px;
+}
+
+/***************************
+ *         SWALS
+ ***************************/
+
+.swal2-popup {
+    border-radius: var(--card-radius) !important;
 }
 
 /*de miguel :3 platanito*/
