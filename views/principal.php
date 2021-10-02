@@ -29,7 +29,7 @@
     		<div class="card-body grid">
     			<div class="card-mini-head">
     				<p class="title">Ganancia</p>
-					<h5 class="content">54.895.874,55 Bs.</h5>
+					<h5 class="content">548,85 Bs.</h5>
 	    		</div>
 	    		<div class="card-mini-content">
 	    			<i class="card-icon fas fa-coins"></i>

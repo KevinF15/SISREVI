@@ -42,3 +42,15 @@
         </div>
 	</div>
 </div>
+
+<script type="text/javascript">
+    /***************************************
+              Edit product action
+    ***************************************/
+
+    window.onload = (function () {
+        $('.pedit').click(function () {
+            window.location.replace(`?pagina=productos#editProduct`);
+        })
+    });
+</script>

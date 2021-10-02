@@ -106,7 +106,7 @@
 
                 <div class="button-row d-flex justify-content-end mt-4">
                     <input type="reset" class="btn btn-light">
-                    <button type="submit" class="btn btn-gradient-primary-color" name="agregar">Agregar</button>
+                    <button type="submit" class="btn btn-gradient-primary-color" name="agregar">Editar</button>
                 </div>
             </form>
 		</div>

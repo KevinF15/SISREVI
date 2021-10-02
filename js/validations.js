@@ -40,6 +40,14 @@ $(function () {
 			re: /^[Jj0-9-\b]{9,10}$/,
 			message: "RIF inválido: El formato debe ser J-0000000",
 		},
+		loginCedInput: {
+			re: /^[0-9]{7,8}$/,
+			message: "Cedula inválida: Verifique e introdúzcala de nuevo.",
+		},
+		loginPassInput: {
+			re: /^[A-Za-z-0-9\u00f1\u00d1\u00E0-\u00FC!@#\$%\^&\*\?_~]*$/,
+			message: "Los caracteres especiales permitidos son: !@#$%^&*?_~",
+		},
 	}
 
 	function validateInput(input, re, message) {

@@ -27,7 +27,7 @@
 						<label class="form-label">Nombre</label> <br>
 						<a id="providerName">
 							<?php 
-								echo "kevin de minecraft";
+								echo "Fernando Garcia";
 							?>
 						</a>
 					</li>
@@ -65,16 +65,10 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>termostaro</td>
-											<td>P1125 maxwel para neveras de 1-3 puertas</td>
+											<td>Termostaro</td>
+											<td>P1125 maxwel para neveras de 1-3 puertas.</td>
 											<td>23</td>
-											<td>234234234$</td>
-										</tr>
-										<tr>
-											<td>platano</td>
-											<td>verde</td>
-											<td>32</td>
-											<td>23423434$</td>
+											<td>12,00 Bs.</td>
 										</tr>
 									</tbody>
 								</table>
@@ -103,20 +97,11 @@
 						<tbody>
 							<tr class="ventas">
 								<td>termostaro</td>
-								<td>P1125 maxwel para neveras de 1-3 puertas</td>
+								<td>P1125 maxwel para neveras de 1-3 puertas.</td>
 								<td><input type="number" class="form-control productAmount" id="salesAmInput" name="existencia" min="1" step="1" required></td>
-								<td>234234234$</td>
-								<td>mucha plata</td>
-								<td></td>
-								<td><i class="fas fa-trash-alt" href="#editProduct" id="papelera"></i></td>
-							</tr>
-							<tr class="ventas">
-								<td>platano</td>
-								<td>verde</td>
-								<td><input type="number" class="form-control productAmount" id="salesAmInput" name="existencia" min="1" step="1" required></td>
-								<td>23423434$</td>
-								<td>mucha money</td>
-								<td></td>
+								<td>12,00 Bs.</td>
+								<td>0,0 Bs.</td>
+								<td>24,00 Bs.</td>
 								<td><i class="fas fa-trash-alt" href="#editProduct" id="papelera"></i></td>
 							</tr>
 						</tbody>
@@ -128,14 +113,14 @@
 						<td>
 							<ul class="nav-op-ven">
 								<li>
-									<button type="submit" class="btn btn-gradient-primary-color" name="registrar">Registrar</button>
+									<button type="submit" class="btn btn-gradient-primary-color" name="registrar">Agregar</button>
 								</li>
 							</ul>
 						</td>
 						<td>
 							<div class="tab-content" id="total">
-								<h6>IVA:</h6>
-								<h6>TOTAL:</h6>
+								<h6>IVA: 0,00 Bs.</h6>
+								<h6>TOTAL: 24,00 Bs.</h6>
 							</div>
 						</td>
 					</tr>
@@ -146,7 +131,7 @@
 		<!-- Order history -->
 		<div class="tab-pane fade card" id="orderHistory" role="tabpanel">
 			<div class="card-header">
-				<h5>Historial de pedidos</h5>
+				<h5>Historial de compras</h5>
 			</div>
 			<form id="histOrdForm" method="POST" class="d-flex flex-column">
 				<div class="form-group mb-3">
@@ -179,21 +164,11 @@
 					<tr class="ventas">
 						<td>000001</td>
 						<td>Divisa</td>
-						<td>mucha plata</td>
-						<td>ayer</td>
+						<td>$10</td>
+						<td>09/08/2021</td>
 						<td>
 							<i class="fas fa-eye" href="#editProduct" id="papelera"></i>
-							<i class="fas fa-trash-alt" id="papelera"></i>
-						</td>
-					</tr>
-					<tr class="ventas">
-						<td>000002</td>
-						<td>la dea</td>
-						<td>>:)</td>
-						<td>3H</td>
-						<td>
-							<i class="fas fa-eye" href="#editProduct" id="papelera"></i>
-							<i class="fas fa-trash-alt" id="papelera"></i>
+							<i class="fas fa-backspace" id="papelera"></i>
 						</td>
 					</tr>
 				</tbody>
