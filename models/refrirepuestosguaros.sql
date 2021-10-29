@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-09-2021 a las 21:16:55
+-- Tiempo de generación: 29-10-2021 a las 23:48:14
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -38,31 +38,41 @@ CREATE TABLE `clientes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `empleados`
+-- Estructura de tabla para la tabla `compras`
 --
 
-CREATE TABLE `empleados` (
-  `doc` varchar(15) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `cargo` varchar(20) NOT NULL,
-  `telefono` varchar(20) NOT NULL,
-  `dir` varchar(100) NOT NULL,
-  `contraseña` varchar(30) NOT NULL
+CREATE TABLE `compras` (
+  `id` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `cantidad_producto` int(11) NOT NULL,
+  `doc_proveedor` varchar(15) NOT NULL,
+  `total_pagar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pedidos`
+-- Estructura de tabla para la tabla `empleados`
 --
 
-CREATE TABLE `pedidos` (
-  `id` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `cod_producto` int(11) NOT NULL,
-  `cantidad_producto` int(11) NOT NULL,
-  `doc_proveedor` varchar(15) NOT NULL,
-  `total_pagar` int(11) NOT NULL
+CREATE TABLE `empleados` (
+  `cedula` varchar(15) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `cargo` varchar(20) NOT NULL,
+  `telefono` varchar(20) NOT NULL,
+  `dir` varchar(100) NOT NULL,
+  `clave` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `marcas`
+--
+
+CREATE TABLE `marcas` (
+  `cod` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -74,8 +84,11 @@ CREATE TABLE `pedidos` (
 CREATE TABLE `productos` (
   `cod` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
+  `cod_marca` int(11) NOT NULL,
   `existencia` int(11) NOT NULL,
-  `prec_unit` int(11) NOT NULL
+  `prec_unit` int(11) NOT NULL,
+  `prec_proveedor` int(11) NOT NULL,
+  `descripcion` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -86,7 +99,7 @@ CREATE TABLE `productos` (
 
 CREATE TABLE `producto_comprado` (
   `cantidad` int(11) NOT NULL,
-  `id_pedido` int(11) NOT NULL,
+  `id_compra` int(11) NOT NULL,
   `cod_producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -109,7 +122,7 @@ CREATE TABLE `producto_vendido` (
 --
 
 CREATE TABLE `proveedores` (
-  `doc` varchar(15) NOT NULL,
+  `rif` varchar(15) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `dir` varchar(100) NOT NULL,
   `telefono` varchar(20) NOT NULL
@@ -126,7 +139,6 @@ CREATE TABLE `ventas` (
   `fecha` date NOT NULL,
   `cantidad_producto` int(11) NOT NULL,
   `metodo_pago` varchar(20) NOT NULL,
-  `cod_producto` int(11) NOT NULL,
   `total_cobrar` int(11) NOT NULL,
   `doc_cliente` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -142,30 +154,37 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`doc`);
 
 --
+-- Indices de la tabla `compras`
+--
+ALTER TABLE `compras`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `doc_proveedor` (`doc_proveedor`);
+
+--
 -- Indices de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  ADD PRIMARY KEY (`doc`);
+  ADD PRIMARY KEY (`cedula`);
 
 --
--- Indices de la tabla `pedidos`
+-- Indices de la tabla `marcas`
 --
-ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `doc_proveedor` (`doc_proveedor`);
+ALTER TABLE `marcas`
+  ADD PRIMARY KEY (`cod`);
 
 --
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
-  ADD PRIMARY KEY (`cod`);
+  ADD PRIMARY KEY (`cod`),
+  ADD KEY `cod_marca` (`cod_marca`);
 
 --
 -- Indices de la tabla `producto_comprado`
 --
 ALTER TABLE `producto_comprado`
   ADD KEY `cod_producto` (`cod_producto`),
-  ADD KEY `id_pedido` (`id_pedido`);
+  ADD KEY `id_pedido` (`id_compra`);
 
 --
 -- Indices de la tabla `producto_vendido`
@@ -178,7 +197,7 @@ ALTER TABLE `producto_vendido`
 -- Indices de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  ADD PRIMARY KEY (`doc`);
+  ADD PRIMARY KEY (`rif`);
 
 --
 -- Indices de la tabla `ventas`
@@ -192,10 +211,16 @@ ALTER TABLE `ventas`
 --
 
 --
--- AUTO_INCREMENT de la tabla `pedidos`
+-- AUTO_INCREMENT de la tabla `compras`
 --
-ALTER TABLE `pedidos`
+ALTER TABLE `compras`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `marcas`
+--
+ALTER TABLE `marcas`
+  MODIFY `cod` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -214,17 +239,23 @@ ALTER TABLE `ventas`
 --
 
 --
--- Filtros para la tabla `pedidos`
+-- Filtros para la tabla `compras`
 --
-ALTER TABLE `pedidos`
-  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`doc_proveedor`) REFERENCES `proveedores` (`doc`);
+ALTER TABLE `compras`
+  ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`doc_proveedor`) REFERENCES `proveedores` (`rif`);
+
+--
+-- Filtros para la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`cod_marca`) REFERENCES `marcas` (`cod`);
 
 --
 -- Filtros para la tabla `producto_comprado`
 --
 ALTER TABLE `producto_comprado`
   ADD CONSTRAINT `producto_comprado_ibfk_1` FOREIGN KEY (`cod_producto`) REFERENCES `productos` (`cod`),
-  ADD CONSTRAINT `producto_comprado_ibfk_2` FOREIGN KEY (`id_pedido`) REFERENCES `pedidos` (`id`);
+  ADD CONSTRAINT `producto_comprado_ibfk_2` FOREIGN KEY (`id_compra`) REFERENCES `compras` (`id`);
 
 --
 -- Filtros para la tabla `producto_vendido`
