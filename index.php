@@ -1,7 +1,11 @@
 <?php
+	session_start();
+
+	if (!isset($_SESSION['logged'])) header('Location: login.php');
+
 	$pagina = "principal";
 
-	if (!empty($_GET['pagina'])){
+	if (!empty($_GET['pagina'])) {
 		$pagina = $_GET['pagina'];
 	}
 
@@ -125,7 +129,7 @@
 				    	<li class="dropdown user-profile">
 				    		<a id="userMenu" data-bs-toggle="dropdown" aria-expanded="false"><img src="media/user.png" > <i class="fas fa-sort-down"></i></a>
 				    		<ul class="dropdown-menu" aria-labelledby="userMenu">
-				    			<li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+				    			<li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
 							  </ul>
 				    	</li>
 				    </ul>

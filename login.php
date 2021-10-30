@@ -1,3 +1,14 @@
+<?php
+	session_start();
+
+	if (isset($_SESSION['logged'])) header('Location: index.php');
+
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+		$_SESSION['logged'] = true;
+		header('Location: index.php');
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -26,7 +37,7 @@
                 	<h3 class="fw-bolder mb-0">¡Bienvenido de vuelta!</h3>
                 	<p class="mb-3">Ingresa tu usuario y contraseña</p>
 
-                	<form id="loginForm" class="forms d-flex flex-column text-start">
+                	<form id="loginForm" class="forms d-flex flex-column text-start" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
                 		<div class="form-group mb-3">
 		                    <label class="form-label" for="loginCedInput">Cedula</label>
 						    <div class="input-group">
@@ -34,14 +45,14 @@
 								    <option value="V" selected>V</option>
 									<option value="E">E</option>
 								</select>
-								<input type="text" class="form-control" id="loginCedInput" placeholder="Cedula" required>
+								<input type="text" class="form-control" id="loginCedInput" placeholder="Cedula" name="cedula" value="14458321" required>
 							</div>
 							<div id="loginCedHelp" class="form-text"></div>
 						 </div>
 
 		                <div class="form-group mb-3">
 		                	<label for="precunitInput" class="form-label">Contraseña</label>
-		                    <input type="password" class="form-control" id="loginPassInput" placeholder="Contraseña" required>
+		                    <input type="password" class="form-control" id="loginPassInput" placeholder="Contraseña" value="123456789" name="clave" required>
 						    <div id="loginPassHelp" class="form-text"></div>
 						</div>
 

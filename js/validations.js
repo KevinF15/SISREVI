@@ -91,11 +91,11 @@ $(function () {
 	});
 
 	// Validar formularios al hacer submit
-	$('form').on('submit', function (e) {
-		e.preventDefault();
-
+	$('form').submit(function (e) {
 		var formId = $(this).attr('id');
+		var formAction = $(this).attr('action');
 		var validate = true;
+
 		
 		$.each($(`#${formId} input, #${formId} textarea`), function(i, input) {
 			var inputId = $(this).attr('id');
@@ -128,6 +128,8 @@ $(function () {
 				showConfirmButton: false,
 				confirmButtonColor: '#17BFE8',
 			});
+		} else {
+			e.preventDefault();
 		}
 	})
 });
