@@ -15,17 +15,39 @@
     box-sizing: border-box;
 }
 
+/*----- Scrollbar -----*/
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #DBDBDB;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #C4C4C4;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+
 body {
     background: #F8F9FA;
     font-family: "Nunito", sans-serif;
     color: var(--font-color);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 a {
     text-decoration: none;
     color: var(--font-color) !important;
 }
+
 
 /***************************
  *      CUSTOM STYLES
@@ -120,11 +142,18 @@ a {
 
 #sidebar {
     display: grid;
+    position: fixed;
     grid-area: sidebar;
     grid-template-rows: 90px 1fr;
 
     min-height: 100vh;
+    max-height: 100vh;
     z-index: 1;
+    overflow: auto;
+}
+
+#sidebar::-webkit-scrollbar, #sidebar::-webkit-scrollbar-thumb {
+    visibility: hidden;
 }
 
 #sidebar .sidebar-header {
@@ -140,6 +169,12 @@ a {
 
 #sidebar h6.sidebar-category {
     margin: 15px 30px;
+    font-weight: 700;
+    color: var(--font-color-light);
+}
+
+#sidebar a.sidebar-category {
+    margin: 15px 15px;
     font-weight: 700;
     color: var(--font-color-light);
 }
@@ -168,7 +203,7 @@ a {
 
 .sidenav .nav-link .down {
     float: right;
-    line-height: 40px;
+    line-height: 25px;
     color: var(--font-color-light) !important;
 }
 
@@ -196,7 +231,7 @@ a {
 
 /*----- Collapses -----*/
 
-.sidebar-collapse ul li {
+/*.sidebar-collapse ul li {
     margin: 5px 0;
     list-style-type: none;
     position: relative;
@@ -211,7 +246,7 @@ a {
     width: 40px;
     text-align: center;
     line-height: 40px;
-}
+}*/
 
 /***************************
  *        HEADER
@@ -264,6 +299,7 @@ a {
 #content {
     grid-area: main;
     width: 98%;
+    overflow: auto !important;
 }
 
 .wrapper-login #content {

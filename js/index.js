@@ -1,10 +1,6 @@
 $(document).ready(function() {
 	// Set the actual page
-	 $(`a.${actual_page}`).parent().addClass('active');
-	 $(`a.${actual_page}`).closest(".collapse").addClass('show');
-
-	// Set actual navigation item
-	$(`a.${actual_nav}`).addClass('active');
+	 $(`a.${actual_page}`).addClass('active');
 
 	// Inicialize tooltips
 	$('[data-bs-toggle="tooltip"]').tooltip();

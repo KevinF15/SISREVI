@@ -15,12 +15,10 @@
 		"proveedores" => array("Proveedores", "Registro de Proveedores"),
 		"empleados" => array("Empleados", "Gestión de Empleados"),
 		"productos" => array("Productos", "Gestión de Productos"),
-		"compras" => array("Compras", "Añadir compra"),
+		"compras" => array("Compras", "Compras"),
 		"ventas" => array("Ventas", "Ventas"),
 		"inventario" => array("Inventario", "Control de inventario"),
 		"caja" => array("Reportes", "Cuadre de caja"),
-		"reporte_ventas" => array("Reportes", "Reporte de ventas"),
-		"historial_compras" => array("Reportes", "Historial de compras"),
 		"respaldo" => array("Respaldo", "Copia de Seguridad y Restauración"),
 		"ayuda" => array("Soporte", "Guías y ayuda"),
 	);
@@ -54,6 +52,8 @@
 
 			// Gets the variable $pagina and converts it to a javascript variable
 			var actual_page = (!getQueryStringValue("pagina") ? "inicio" : getQueryStringValue("pagina"));
+			var actual_nav = ('<?=$ventanas[$pagina][0]?>');
+			actual_nav = `${actual_nav[0].toLowerCase()}${actual_nav.slice(1)}`;
 		</script>
 	</head>
 	<body>
@@ -67,7 +67,7 @@
 			    </div>
 			    <!-- Sidebar navigation -->
 			    <nav class="sidenav">
-					<a class="nav-link principal" href="?pagina=principal">
+					<a class="nav-link inicio" href="?pagina=principal">
 						<i class="fas fa-home"></i> Inicio
 					</a>
 
@@ -95,6 +95,26 @@
 						<i class="fas fa-shopping-cart"></i> Compras
 					</a>
 
+					<!--<a class="nav-link movimientos" data-bs-toggle="collapse" href="#movMenu" role="button" aria-expanded="false" aria-controls="movMenu">
+						<i class="fas fa-book"></i> Movimientos <span class="down fas fa-angle-down">
+					</a>
+					<div class="collapse sidebar-collapse" id="movMenu">
+						<ul>
+							<li><a class="compras" href="?pagina=compras"><i class="fas fa-shopping-basket"></i> Compras</a></li>
+							<li><a class="ventas" href="?pagina=ventas"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
+						</ul>
+					</div>-->
+
+					<!--<a class="nav-link reportes" data-bs-toggle="collapse" href="#reportsMenu" role="button" aria-expanded="false" aria-controls="reportsMenu">
+						<i class="fas fa-file-alt"></i> Reportes <span class="down fas fa-angle-down">
+					</a>
+					<div class="collapse sidebar-collapse" id="reportsMenu">
+						<ul>
+							<li><a class="inventario" href="?pagina=inventario"><i class="fas fa-warehouse"></i> Inventario</a></li>
+							<li><a class="caja" href="?pagina=caja"><i class="fas fa-cash-register"></i> Cuadre de caja</a></li>
+						</ul>
+					</div>-->
+
 					<h6 class="sidebar-category">Reportes</h6>
 
 					<a class="nav-link caja" href="?pagina=caja">
@@ -103,14 +123,6 @@
 
 					<a class="nav-link inventario" href="?pagina=inventario">
 						<i class="fas fa-warehouse"></i> Inventario
-					</a>
-
-					<a class="nav-link reporte_ventas" href="?pagina=reporte_ventas">
-						<i class="fas fa-receipt"></i> Reporte de ventas
-					</a>
-
-					<a class="nav-link historial_compras" href="?pagina=historial_compras">
-						<i class="fas fa-history"></i> Historial de compras
 					</a>
 
 					<h6 class="sidebar-category">Otros</h6>

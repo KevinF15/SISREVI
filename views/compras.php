@@ -1,16 +1,5 @@
 <div class="orders-panel">
-	<!-- Tabs -->
-	<ul class="nav nav-tabs flex-colum justify-content-around" role="tablist">
-		<li class="nav-item" role="presentation">
-			<a href="#newOrder" class="nav-link active" data-bs-toggle="tab" data-bs-target="#newOrder" type="button" role="tab" aria-selected="false"><i class="fas fa-truck-loading"></i> Realizar pedido</a>
-		</li>
-		<li class="nav-item" role="presentation">
-			<a href="#orderHistory" class="nav-link" data-bs-toggle="tab" data-bs-target="#orderHistory" type="button" role="tab" aria-selected="true"><i class="fas fa-book"></i> Historial</a>
-		</li>
-	</ul>
-	<div class="tab-content">
-		<!-- New order -->
-		<div class="tab-pane fade show active card" id="newOrder" role="tabpanel">
+	<div class="card" id="newOrder" role="tabpanel">
 			<form id="addOrderForm" method="POST" class="d-flex flex-column">
 				<ul class="nav-op-ven">
 					<li>
@@ -126,53 +115,6 @@
 					</tr>
 				</table>
 			</form>
-		</div>
-
-		<!-- Order history -->
-		<div class="tab-pane fade card" id="orderHistory" role="tabpanel">
-			<div class="card-header">
-				<h5>Historial de compras</h5>
-			</div>
-			<form id="histOrdForm" method="POST" class="d-flex flex-column">
-				<div class="form-group mb-3">
-					<label class="form-label">Intervalo de tiempo</label>
-					<div class="form-group row">
-							<div class="col-3">
-								<input type="datetime-local" class="form-control" id="oHistoryStart" name="start">
-							</div>
-							<div class="col-3">
-								<input type="datetime-local" class="form-control" id="oHistoryEnd" name="end">
-							</div>
-							<div class="col-3">
-								<button type="submit" class="btn btn-gradient-primary-color" name="Enivir">Enviar</button>
-							</div>
-						</div>
-					<div id="codHelp" class="form-text"></div>
-				</div>
-			</form>
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Codigo</th>
-						<th>Proveedor</th>
-						<th>ToTal</th>
-						<th>Fecha</th>
-						<td></td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="ventas">
-						<td>000001</td>
-						<td>Divisa</td>
-						<td>$10</td>
-						<td>09/08/2021</td>
-						<td>
-							<i class="fas fa-eye" href="#editProduct" id="papelera"></i>
-							<i class="fas fa-backspace" id="papelera"></i>
-						</td>
-					</tr>
-				</tbody>
-			</table>
 		</div>
 	</div>
 </div>
