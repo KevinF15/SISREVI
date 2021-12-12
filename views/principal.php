@@ -39,7 +39,7 @@
     </div>
     <div class="container my-4">
     	<!-- Company info -->
-    	<div class="card flipping-card company-info w-100">
+    	<div class="card flipping-card company-info w-100 col-5">
             <div class="card-side card-front">
             	<div id="digital-clock" class="grid">
             		<!-- Javascript clock -->

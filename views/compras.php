@@ -7,17 +7,18 @@
 							<label for="searchProviderInput" class="form-label">Proveedor</label>
 							<input class="form-control" list="searchProviderInput" placeholder="Cedula / RIF" required>
 		                    <datalist id="searchProviderInput">
-		                        <option>V-15785658 - Fernando Garcia</option>
-		                        <option>J-30415457-5 - Filomena Sanchez</option>
+		                    	<!--<option>V-15785658 - Fernando Garcia</option>
+		                        <option>J-30415457-5 - Filomena Sanchez</option>-->
+		                        <?php
+		                        	echo $purchase->showProviders();
+		                        ?>
 		                    </datalist>
 						</div>
 					</li>
 					<li id="pelo">
 						<label class="form-label">Nombre</label> <br>
 						<a id="providerName">
-							<?php 
-								echo "Fernando Garcia";
-							?>
+							Seleccione proveedor
 						</a>
 					</li>
 				</ul>

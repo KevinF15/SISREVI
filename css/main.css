@@ -15,27 +15,6 @@
     box-sizing: border-box;
 }
 
-/*----- Scrollbar -----*/
-
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #DBDBDB;
-}
-
-/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #C4C4C4;
-    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
-}
-
-/* Cambiamos el fondo cuando esté en active */
-::-webkit-scrollbar-thumb:active {
-    background-color: #999999;
-}
-
 body {
     background: #F8F9FA;
     font-family: "Nunito", sans-serif;
@@ -48,6 +27,24 @@ a {
     color: var(--font-color) !important;
 }
 
+/*----- Scrollbar -----*/
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #DBDBDB;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #C4C4C4;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
 
 /***************************
  *      CUSTOM STYLES
@@ -228,25 +225,6 @@ a {
     font-weight: 700;
     box-shadow: var(--card-shadow);
 }
-
-/*----- Collapses -----*/
-
-/*.sidebar-collapse ul li {
-    margin: 5px 0;
-    list-style-type: none;
-    position: relative;
-}
-
-.sidebar-collapse li.active {
-    font-weight: 700;
-    color: var(--font-color-dark) !important;
-}
-
-.sidebar-collapse ul li a i {
-    width: 40px;
-    text-align: center;
-    line-height: 40px;
-}*/
 
 /***************************
  *        HEADER

@@ -14,9 +14,8 @@
 		"clientes" => array("Clientes", "Registro de Clientes"),
 		"proveedores" => array("Proveedores", "Registro de Proveedores"),
 		"empleados" => array("Empleados", "Gestión de Empleados"),
-		"productos" => array("Productos", "Gestión de Productos"),
 		"compras" => array("Compras", "Añadir compra"),
-		"ventas" => array("Ventas", "Ventas"),
+		"ventas" => array("Ventas", "Crear venta"),
 		"inventario" => array("Inventario", "Control de inventario"),
 		"caja" => array("Reportes", "Cuadre de caja"),
 		"reporte_ventas" => array("Reportes", "Reporte de ventas"),
@@ -85,6 +84,10 @@
 						<i class="fas fa-user"></i> Clientes
 					</a>
 
+					<a class="nav-link inventario" href="?pagina=inventario">
+						<i class="fas fa-warehouse"></i> Inventario
+					</a>
+
 					<h6 class="sidebar-category">Movimientos</h6>
 
 					<a class="nav-link ventas" href="?pagina=ventas">
@@ -99,10 +102,6 @@
 
 					<a class="nav-link caja" href="?pagina=caja">
 						<i class="fas fa-cash-register"></i> Cuadre de caja
-					</a>
-
-					<a class="nav-link inventario" href="?pagina=inventario">
-						<i class="fas fa-warehouse"></i> Inventario
 					</a>
 
 					<a class="nav-link reporte_ventas" href="?pagina=reporte_ventas">
@@ -163,6 +162,8 @@
 					<h5>Configuración del Sistema</h5>
 					<p class="text-sm">Opciones generales</p>
 				</div>
+
+				Estas opciones se añadirán cuando el sistema este completo...
 			</div>
 		</div>
 
