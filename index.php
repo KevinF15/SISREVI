@@ -179,5 +179,7 @@
 
 		<script type="text/javascript" src="js/validations.js"></script>
 		<script type="text/javascript" src="js/index.js"></script>
+		
+		<script type="text/javascript" src="js/compras.js"></script>
 	</body>
 </html>
