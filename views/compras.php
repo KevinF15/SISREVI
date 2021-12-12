@@ -50,15 +50,14 @@
 											<th>Nombre</th>
 											<th>Descripcion</th>
 											<th>Existencia</th>
-											<th>Precio unitario</th>
+											<th>Precio proveedor</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td>Termostaro</td>
-											<td>P1125 maxwel para neveras de 1-3 puertas.</td>
-											<td>23</td>
-											<td>12,00 Bs.</td>
+										<?php
+											echo $purchase->showProducs();
+										?>
 										</tr>
 									</tbody>
 								</table>
@@ -78,22 +77,13 @@
 								<th>Nombre</th>
 								<th>Descripcion</th>
 								<th>Cantidad</th>
-								<th>Precio c/u</th>
-								<th>IVA</th>
+								<th>Precio proveedor</th>
 								<th>total</th>
 								<td></td>
 							</tr>
 						</thead>
-						<tbody>
-							<tr class="ventas">
-								<td>termostaro</td>
-								<td>P1125 maxwel para neveras de 1-3 puertas.</td>
-								<td><input type="number" class="form-control productAmount" id="salesAmInput" name="existencia" min="1" step="1" required></td>
-								<td>12,00 Bs.</td>
-								<td>0,0 Bs.</td>
-								<td>24,00 Bs.</td>
-								<td><i class="fas fa-trash-alt" href="#editProduct" id="papelera"></i></td>
-							</tr>
+						<tbody id="detalledeventa">
+
 						</tbody>
 					</table>
 				</div>
