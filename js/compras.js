@@ -52,6 +52,13 @@ $(document).ready(function(){
         if(!encontro){
             var l = `
               <tr>
+               <td style="display:none">
+                   <input type="text" name="idp[]" style="display:none"
+                   value="`+
+                        $(linea).find("td:eq(0)").text()+
+                   `"/>`+   
+                        $(linea).find("td:eq(0)").text()+
+               `</td>
                <td>`+
                         $(linea).find("td:eq(0)").text()+
                `</td>

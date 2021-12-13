@@ -5,7 +5,7 @@
 					<li>
 						<div class="form-group mb-3">
 							<label for="searchProviderInput" class="form-label">Proveedor</label>
-							<input class="form-control" list="searchProviderInput" placeholder="Cedula / RIF" required>
+							<input class="form-control" list="searchProviderInput" placeholder="RIF" name="provider" required>
 		                    <datalist id="searchProviderInput">
 		                    	<!--<option>V-15785658 - Fernando Garcia</option>
 		                        <option>J-30415457-5 - Filomena Sanchez</option>-->

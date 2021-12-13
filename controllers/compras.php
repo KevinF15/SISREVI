@@ -8,6 +8,10 @@
 		require_once("models/".$pagina.".php");
 		$purchase = new Purchases();
 
+		if (!empty($_POST)) {
+			$purchase->add($_POST['provider'], $_POST['idp'], $_POST['cant']);
+		}
+
 		require_once("views/".$pagina.".php");
 	} else{
 		header('Location: 404.php');
