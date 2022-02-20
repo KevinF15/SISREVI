@@ -9,9 +9,10 @@
 			try {
 				$fecha = date('Y-m-d');
 				$tamano = count($products);
-				$guarda = $BD->query("insert into compras(fecha, cantidad_producto, doc_proveedor) values ('$fecha', '$tamano','$provider')");
+				$total = 0;
+				$guarda = $BD->query("insert into compras(fecha, cantidad_producto, doc_proveedor, total_pagar) values ('$fecha', '$tamano','$provider', '$total')");
 		   		$lid = $BD->lastInsertId();
-
+				
 				for($i = 0; $i < $tamano; $i++){
 				   $cod_query = $BD->prepare("SELECT cod FROM `productos` WHERE nombre = '$products[$i]'");
 				   $cod_query->execute();
