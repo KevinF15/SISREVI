@@ -5,20 +5,25 @@
 					<li>
 						<div class="form-group mb-3">
 							<label for="searchClientInput" class="form-label">Cliente</label>
-							<input class="form-control" list="searchClientInput" placeholder="Cedula / RIF" required>
+							<input class="form-control" list="searchClientInput" placeholder="Cedula / RIF" name="clients" required>
 		                    <datalist id="searchClientInput">
-		                        <option>V-15785658 - Fernando Garcia</option>
-		                        <option>J-30415457-5 - Filomena Sanchez</option>
+								<?php
+		                        	echo $purchase->showcliens();
+		                        ?>
 		                    </datalist>
 						</div>
 					</li>
 					<li id="pelo">
-						<label for="clientName" class="form-label">Nombre</label> <br>
-						<a id="clientName">
-							<?php 
-								echo "Fernando Garcia";
-							?>
-						</a>
+						<label for="metodo" class="form-label">Metodo de pago</label> <br>
+						<input class="form-control" list="metodo" placeholder="Seleccione metodo" name="metod" id="metod" required>
+		                    <datalist id="metodo">
+		                        <option>Efectivo</option>
+		                        <option>Divisa</option>
+								<option>Punto debito</option>
+								<option>Punto credito</option>
+								<option>Transferencia</option>
+								<option>Pago movil</option>
+		                    </datalist>
 					</li>
 				</ul> 
 
@@ -54,10 +59,9 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>Termostaro</td>
-											<td>P1125 maxwel para neveras de 1-3 puertas.</td>
-											<td>23</td>
-											<td>12,00 Bs.</td>
+											<?php
+												echo $purchase->showProducs();
+											?>
 										</tr>
 									</tbody>
 								</table>
@@ -70,28 +74,19 @@
 					</div>
 				</div>
 
-				<table class="table">
+				<table class="table" id="detallecompra">
 					<thead>
 						<tr>
 							<th>Nombre</th>
 							<th>Descripcion</th>
 							<th>Cantidad</th>
 							<th>Precio c/u</th>
-							<th>IVA</th>
 							<th>total</th>
 							<td></td>
 						</tr>
 					</thead>
-					<tbody>
-						<tr class="ventas">
-							<td>Termostaro</td>
-							<td>P1125 maxwel para neveras de 1-3 puertas.</td>
-							<td><input type="number" class="form-control productAmount" id="salesAmInput" name="existencia" min="1" step="1" required></td>
-							<td>12,00 Bs.</td>
-							<td>0,0 Bs.</td>
-							<td>24,00 Bs.</td>
-							<td><i class="fas fa-trash-alt" href="#editProduct" id="papelera"></i></td>
-						</tr>
+					<tbody id="detalledeventa">
+						
 					</tbody>
 				</table>
 					<table>
@@ -105,12 +100,13 @@
 						</td>
 						<td>
 							<div class="tab-content" id="total">
-								<h6>IVA: 0,00 Bs.</h6>
-								<h6>TOTAL: 24,00 Bs.</h6>
+								<h6>TOTAL: <span id="sumatotal"></span>Bs.</h6>
+								<h6>TOTAL:<span id="sumatotal2"></span>$.</h6>
 							</div>
 						</td>
 					</tr>
 				</table>
 			</form>
+			<script type="text/javascript" src="js/ventas1.js"></script>
 		</div>
 </div>

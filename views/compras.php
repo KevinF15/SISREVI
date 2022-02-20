@@ -15,12 +15,6 @@
 		                    </datalist>
 						</div>
 					</li>
-					<li id="pelo">
-						<label class="form-label">Nombre</label> <br>
-						<a id="providerName">
-							Seleccione proveedor
-						</a>
-					</li>
 				</ul>
 				
 				<!-- Button: Add product -->
@@ -71,7 +65,7 @@
 				</div>
 
 				<div class="order table-responsive">
-					<table class="table">
+					<table id="detallecompra" class="table">
 						<thead>
 							<tr>
 								<th>Nombre</th>
@@ -99,13 +93,15 @@
 						</td>
 						<td>
 							<div class="tab-content" id="total">
-								<h6>IVA: 0,00 Bs.</h6>
-								<h6>TOTAL: 24,00 Bs.</h6>
+								<h6>TOTAL:<span id="sumatotal"></span>Bs.</h6>
+								<h6>TOTAL:<span id="sumatotal2"></span>$.</h6>
+								<h5 class="dolarprice" id="dolarprice" style="display:none"></h5>
 							</div>
 						</td>
 					</tr>
 				</table>
 			</form>
 		</div>
+		<script type="text/javascript" src="js/compras2.js"></script>
 	</div>
 </div>

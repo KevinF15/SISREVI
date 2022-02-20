@@ -28,14 +28,10 @@
 				</thead>
 				<tbody>
 					<tr class="ventas">
-						<td>000001</td>
-						<td>Divisa</td>
-						<td>$10</td>
-						<td>09/08/2021</td>
-						<td>
-							<i class="fas fa-eye" href="#editProduct" id="papelera"></i>
-							<i class="fas fa-backspace" id="papelera"></i>
-						</td>
+						<?php
+		                    echo $purchase->showsell();
+		                ?>
+					</td>
 					</tr>
 				</tbody>
 			</table>
@@ -44,18 +40,6 @@
 					<div class="col">
 						<h6>TOTAL GENERAL:</h6>
 						<h6>$10</h6>
-					</div>
-					<div class="col">
-						<h6>TOTAL DIVISA:</h6>
-						<h6>$10</h6>
-					</div>
-					<div class="col">
-						<h6>TOTAL PUNTO:</h6>
-						<h6>0,00 Bs.</h6>
-					</div>
-					<div class="col">
-						<h6>TOTAL EFECTIVO:</h6>
-						<h6>0,00 Bs.</h6>
 					</div>
 				</div>
 			</div>
