@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2021 a las 23:48:14
+-- Tiempo de generación: 21-02-2022 a las 03:34:08
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
 
@@ -83,6 +83,7 @@ CREATE TABLE `marcas` (
 
 CREATE TABLE `productos` (
   `cod` int(11) NOT NULL,
+  `cod_barras` varchar(20) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `cod_marca` int(11) NOT NULL,
   `existencia` int(11) NOT NULL,

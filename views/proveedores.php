@@ -11,21 +11,20 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="ventas">
-					<td>J-31033587-8</td>
-					<td>Richard Amaro</td>
-					<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</td>
-					<td>0414-5598157</td>
-					<td><i class="fas fa-trash-alt" id="papelera"></i><i class="fas fa-pencil-alt pedit" id="papelera" class="fas fa-pencil-alt pedit" id="papelera" data-bs-toggle="modal" data-bs-target="#editProviderModal"></i></td>
-				</tr>
-				<tr class="ventas">
-					<td>J-12789654-4</td>
-					<td>Productora Amaro Parrila</td>
-					<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</td>
-					<td>0424-135846</td>
-					<td><i class="fas fa-trash-alt" id="papelera"></i><i class="fas fa-pencil-alt pedit" id="papelera" data-bs-toggle="modal" data-bs-target="#editProviderModal"></i></td>
-				</tr>
-			</tbody>
+					<?php
+						$query = $database->sqlQuery("SELECT rif, nombre, telefono, dir from proveedores");
+
+						while ($row = $query->fetch(PDO::FETCH_ASSOC))  {
+							echo "<tr class=userDataRow data-id=".$row['rif'].">";
+						    echo "<td>".$row['rif']."</td>";
+						    echo "<td>".$row['nombre']."</td>";
+						    echo "<td>".$row['telefono']."</td>";
+						    echo "<td>".$row['dir']."</td>";
+						    echo '<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editProviderModal"></i> <i class="fas fa-trash-alt pdel"></i></td>';
+						    echo "</tr>";
+						}
+					?>
+				</tbody>
 		</table>
 
 		<!-- Button: Add provider -->
@@ -52,7 +51,7 @@
 						<form id="provForm" action="" method="POST" class="d-flex flex-column">
 							<div>
 								<label for="provRIFInput" class="form-label">RIF</label>
-								<input type="text" class="form-control" id="provRIFInput" name="doc" aria-describedby="provRIFHelp" placeholder="J-00000000" required>
+								<input type="text" class="form-control" id="provRIFInput" name="rif" aria-describedby="provRIFHelp" placeholder="J-00000000" required>
 								<span id="provRIFHelp"></span>
 							</div>
 							<div>
@@ -67,7 +66,7 @@
 							</div>
 							<div>
 								<label for="provDescInput" class="form-label">Direccion</label>
-								<textarea class="form-control" id="provDescInput" name="descripcion" aria-describedby="provDescHelp"></textarea>
+								<textarea class="form-control" id="provDescInput" name="dir" aria-describedby="provDescHelp"></textarea>
 								<span id="provDescHelp"></span>
 							</div>
 							<div class="button-row d-flex justify-content-end mt-4">
@@ -97,7 +96,7 @@
 						<form id="provEditForm" action="" method="POST" class="d-flex flex-column">
 							<div>
 								<label for="provRIFInput" class="form-label">RIF</label>
-								<input type="text" class="form-control" id="provRIFInput" name="doc" aria-describedby="provRIFHelp" placeholder="J-00000000" required>
+								<input type="text" class="form-control" id="provRIFInput" name="rif" aria-describedby="provRIFHelp" placeholder="J-00000000" required>
 								<span id="provRIFHelp"></span>
 							</div>
 							<div>
@@ -112,12 +111,12 @@
 							</div>
 							<div>
 								<label for="provDescInput" class="form-label">Direccion</label>
-								<textarea class="form-control" id="provDescInput" name="descripcion" aria-describedby="provDescHelp"></textarea>
+								<textarea class="form-control" id="provDescInput" name="dir" aria-describedby="provDescHelp"></textarea>
 								<span id="provDescHelp"></span>
 							</div>
 							<div class="button-row d-flex justify-content-end mt-4">
 								<input type="reset" class="btn btn-light">
-								<button type="submit" class="btn btn-gradient-primary-color" id="registar" name="Registar">Editar</button>
+								<button type="submit" class="btn btn-gradient-primary-color" id="registar" name="editar">Editar</button>
 							</div>
 						</form>
 					</div>

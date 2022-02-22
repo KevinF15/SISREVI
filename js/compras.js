@@ -76,7 +76,7 @@ $(document).ready(function(){
                         $(linea).find("td:eq(3)").text()+
                `</td>
                <td>`+
-                        redondearDecimales($(linea).find("td:eq(3)").text()*1,1)+
+                        redondearDecimales($(linea).find("td:eq(4)").text()*1,1)+
                `</td>
                <td>
                <button type="button" class="btn btn-primary" onclick="eliminalineadetalle(this)"></button><i class="fas fa-trash-alt" href="#editProduct" id="papelera"></i>
@@ -92,8 +92,9 @@ $(document).ready(function(){
     function modificasubtotal(textocantidad){
         var linea = $(textocantidad).closest('tr');
         var valor = $(textocantidad).val()*1;
-        var Precio_proveedor = $(linea).find("td:eq(3)").text()*1;
-        $(linea).find("td:eq(4)").text(redondearDecimales((valor*Precio_proveedor),2));
+        var Precio_proveedor = $(linea).find("td:eq(4)").text()*1;
+        $(linea).find("td:eq(5)").text(redondearDecimales((valor*Precio_proveedor),2));
+        sumatotal()
     }
     //fin de funcion modifica subtotal
     
@@ -180,3 +181,33 @@ $(document).ready(function(){
         return Number(Math.round(numero +'e'+ decimales) +'e-'+ decimales).toFixed(decimales);
         
     }
+
+    //Funcion que suma el total a pagar en las compras
+    function sumatotal(){
+
+        var total = 0;
+        let totaldolar = 0;
+        var filas = document.querySelectorAll("#detallecompra tbody tr");
+        
+        filas.forEach(function(e) {
+ 
+            // obtenemos las columnas de cada fila
+            var columnas=e.querySelectorAll("td");
+            
+            total += parseFloat(columnas[5].firstChild.data);
+            
+        });
+
+       document.getElementById("sumatotal").innerHTML = total;
+
+        $.getJSON("https://exchangemonitor.net/ajax/widget-unique", {"country": "ve", "type": "enparalelovzla"}, function (data) {
+		    let dolar = `${data.price}`;
+            totaldolar = parseFloat(total) / parseFloat(dolar);
+            document.getElementById("sumatotal2").innerHTML = totaldolar;
+	    });
+
+    }
+
+    $.getJSON("https://exchangemonitor.net/ajax/widget-unique", {"country": "ve", "type": "enparalelovzla"}, function (data) {
+		    $('.dolarprice').number(`${data.price}`);
+	    });

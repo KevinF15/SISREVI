@@ -25,7 +25,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                    	<?php
+							require_once('models/bd.php');
+							$database = new Database();
+
+							$query = $database->sqlQuery("SELECT cod, cod_barras, nombre, cod_marca, existencia, prec_proveedor, descripcion from productos");
+
+							while ($row = $query->fetch(PDO::FETCH_ASSOC))  {
+								if ($row['existencia'] == 0) $row['existencia'] = '<div class="sout">Agotado</div>';
+
+								echo "<tr class=productDataRow data-id=".$row['cod'].">";
+							    echo "<td>".$row['cod_barras']."</td>";
+							    echo "<td>".$row['nombre']."</td>";
+							    echo "<td>".$row['descripcion']."</td>";
+							    echo "<td>".$row['existencia']."</td>";
+							    echo "<td>".$row['prec_proveedor']."</td>";
+							    echo '<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editEmpModal"></i> <i class="fas fa-trash-alt pdel"></i></td>';
+							    echo "</tr>";
+							}
+						?>
+
+                        <!--<tr>
                             <td>0001</td>
                             <td>Lorem ipsum</td>
                             <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ...</td>
@@ -48,7 +68,7 @@
                             <td>5</td>
                             <td>4.859.658,77 Bs.</td>
                             <td><i class="fas fa-pencil-alt pedit"></i> <i class="fas fa-trash-alt pdel"></i></td>
-                        </tr>
+                        </tr>-->
                     </tbody>
                 </table>
             </div>
@@ -62,15 +82,32 @@
             <form action="" id="pform" method="POST" class="d-flex flex-column">
                 <div class="form-group mb-3">
                     <label for="pcodeInput" class="form-label">Código de producto</label>
-                    <input type="text" class="form-control" id="pcodeInput" name="cod" aria-describedby="pcodHelp" placeholder="0000000000" disabled>
+                    <input type="text" class="form-control" id="pcodeInput" name="cod_barras" aria-describedby="pcodHelp" placeholder="0000000000">
                     <div id="pcodHelp" class="form-text"></div>
                 </div>
 
                 <div class="form-group row mb-3">
-                    <div class="col-9">
+                    <div class="col-5">
                         <label for="pnameInput" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="pnameInput" name="nombre" aria-describedby="pnameHelp" required>
                         <div id="pnameHelp" class="form-text"></div>
+                    </div>
+                    <div class="col-4">
+                        <label for="pnameInput" class="form-label">Marca</label>
+                        <div class="input-group mb-3">
+                            <input class="form-control" list="brand-list" name="marca" id="brandNameInput" required>
+                            <datalist id="brand-list">
+                                <?php
+                                   $brands = $database->sqlQuery("SELECT nombre from marcas");
+
+                                    while ($row = $brands->fetch(PDO::FETCH_ASSOC))  {
+                                        echo "<option value=".$row['nombre'].">";
+                                    }
+                                ?>
+                            </datalist>
+                            <button class="btn btn-outline-secondary" type="button" onClick="addBrand()"><i class="fas fa-solid fa-plus"></i></button>
+                        </div>
+                        <div id="pBrandHelp" class="form-text"></div>
                     </div>
                     <div class="col-3">
                         <label for="existInput" class="form-label">Existencia</label>
@@ -101,6 +138,42 @@
                     <button type="submit" class="btn btn-gradient-primary-color" name="agregar">Agregar</button>
                 </div>
             </form>
+        </div>
+        <!-- Modal: Add employer -->
+        <div class="modal fade" id="addEmpModal" tabindex="-1" aria-labelledby="addEmpModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <!-- Header -->
+                    <div class="modal-header">
+                        <div>
+                            <h5 class="modal-title" id="exampleModalLabel">Marcas</h5>
+                            <p class="text-sm">Selecciona o agrega una nueva marca.</p>
+                        </div>
+                        <i class="fas fa-times" data-bs-dismiss="modal" aria-label="Close"></i>
+                    </div>
+                    <!-- Content -->
+                    <div class="modal-body">
+                    	<div class="d-flex flex-column">
+                    		<div class="row mr-3">
+                    			<div class="col-5 brands-list">
+                    				Aja<br>
+                    				Aja<br>
+                    				Aja<br>
+                    				Aja<br>
+                    				Aja<br>
+                    				Aja<br>
+                    				Aja<br>
+                    				Aja<br>
+                    				Aja<br>
+                    			</div>
+                    			<div class="col-7">
+                    				Aja
+                    			</div>
+                    		</div>
+                    	</div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Edit product -->
         <div class="tab-pane fade card card-forms" id="editProduct" role="tabpanel">

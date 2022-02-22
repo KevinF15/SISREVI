@@ -1,7 +1,9 @@
 <?php
-	session_start();
+	include 'init.php';
+	require_once("models/empleados.php");
 
-	if (!isset($_SESSION['logged'])) header('Location: login.php');
+	$user = new User();
+	if (!$user->isLogged()) header('Location: login.php');
 
 	$pagina = "principal";
 
@@ -181,5 +183,8 @@
 		<script type="text/javascript" src="js/index.js"></script>
 		
 		<script type="text/javascript" src="js/compras.js"></script>
+		<script type="text/javascript" src="js/products.js"></script>
+		<script type="text/javascript" src="js/ventas.js"></script>
+		<script type="text/javascript" src="js/users.js"></script>
 	</body>
 </html>

@@ -12,38 +12,23 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>14.458.321</td>
-						<td>Juan Luis Perez Peña</td>
-						<td>Administrador</td>
-						<td>0426-7859842</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</td>
-						<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editEmpModal"></i> <i class="fas fa-trash-alt pdel"></i></td>
-					</tr>
-					<tr>
-						<td>16.678.128</td>
-						<td>Yusbelys Yesimar Franco Pereira</td>
-						<td>Administrador</td>
-						<td>0426-458796</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</td>
-						<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editEmpModal"></i> <i class="fas fa-trash-alt pdel"></i></td>
-					</tr>
-					<tr>
-						<td>4.875.456</td>
-						<td>Maria Yusepina Oliveira Martinez</td>
-						<td>Cajera</td>
-						<td>0414-2244778</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</td>
-						<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editEmpModal"></i> <i class="fas fa-trash-alt pdel"></i></td>
-					</tr>
-					<tr>
-						<td>4.875.456</td>
-						<td>Alan Jose Brito Delgado</td>
-						<td>Cajero</td>
-						<td>0426-21554876</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</td>
-						<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editEmpModal"></i> <i class="fas fa-trash-alt pdel"></i></td>
-					</tr>
+					<?php
+						require_once('models/bd.php');
+						$database= new Database();
+
+						$query = $database->sqlQuery("SELECT cedula, nombre, cargo, telefono, dir from empleados");
+
+						while ($row = $query->fetch(PDO::FETCH_ASSOC))  {
+							echo "<tr class=userDataRow data-id=".$row['cedula'].">";
+						    echo "<td>".$row['cedula']."</td>";
+						    echo "<td>".$row['nombre']."</td>";
+						    echo "<td>".$row['cargo']."</td>";
+						    echo "<td>".$row['telefono']."</td>";
+						    echo "<td>".$row['dir']."</td>";
+						    echo '<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editEmpModal"></i> <i class="fas fa-trash-alt pdel"></i></td>';
+						    echo "</tr>";
+						}
+					?>
 				</tbody>
 			</table>
 			<!-- Button: Add employer -->
@@ -81,8 +66,8 @@
 				                    <div class="col-6">
 				                        <label for="echargeInput" class="form-label">Cargo</label>
 				                        <select class="form-select" name="cargo" id="echargeInput" aria-describedby="chargeHelp">
-				                        	<option value="a" selected="">Administrador</option>
-				                        	<option value="c">Cajero</option>
+				                        	<option value="Administrador" selected="">Administrador</option>
+				                        	<option value="Cajero">Cajero</option>
 				                        </select>
 				                        <div id="chargeHelp" class="form-text"></div>
 				                    </div>
@@ -101,7 +86,7 @@
 				                </div>
 				                <div class="button-row d-flex justify-content-end mt-4">
 									<input type="reset" class="btn btn-light">
-									<button type="submit" class="btn btn-gradient-primary-color" name="añadir" class="btn btn-primary">Añadir</button>
+									<button type="submit" class="btn btn-gradient-primary-color" name="añadir">Añadir</button>
 								</div>
 							</form>
 						</div>
@@ -123,7 +108,7 @@
 				  		</div>
 				  		<!-- Content -->
 				  		<div class="modal-body">
-							<form id="newEmpForm" action="" method="POST" class="forms d-flex flex-column">
+							<form id="editEmpForm" method="POST" class="forms d-flex flex-column">
 								<div class="form-group mb-3">
 				                    <label for="enameInput" class="form-label">Nombre</label>
 				                    <input type="text" class="form-control" id="enameInput" name="nombre" aria-describedby="enameHelp">
@@ -138,8 +123,8 @@
 				                    <div class="col-6">
 				                        <label for="echargeInput" class="form-label">Cargo</label>
 				                        <select class="form-select" name="cargo" id="echargeInput" aria-describedby="chargeHelp">
-				                        	<option value="a" selected="">Administrador</option>
-				                        	<option value="c">Cajero</option>
+				                        	<option value="Administrador" selected="">Administrador</option>
+				                        	<option value="Cajero">Cajero</option>
 				                        </select>
 				                        <div id="chargeHelp" class="form-text"></div>
 				                    </div>
@@ -158,7 +143,7 @@
 				                </div>
 				                <div class="button-row d-flex justify-content-end mt-4">
 									<input type="reset" class="btn btn-light">
-									<button type="submit" class="btn btn-gradient-primary-color" name="añadir" class="btn btn-primary">Añadir</button>
+									<button type="submit" class="btn btn-gradient-primary-color" name="editar" class="btn btn-primary">Editar</button>
 								</div>
 							</form>
 						</div>

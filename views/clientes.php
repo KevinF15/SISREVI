@@ -11,34 +11,19 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>14.458.321</td>
-						<td>Juan Luis Perez Peña</td>
-						<td>0426-7859842</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</td>
-						<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editClientModal"></i> <i class="fas fa-trash-alt pdel"></i></td>
-					</tr>
-					<tr>
-						<td>16.678.128</td>
-						<td>Yusbelys Yesimar Franco Pereira</td>
-						<td>0426-458796</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</td>
-						<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editClientModal"></i> <i class="fas fa-trash-alt pdel"></i></td>
-					</tr>
-					<tr>
-						<td>4.875.456</td>
-						<td>Maria Yusepina Oliveira Martinez</td>
-						<td>0414-2244778</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</td>
-						<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editClientModal"></i> <i class="fas fa-trash-alt pdel"></i></td>
-					</tr>
-					<tr>
-						<td>4.875.456</td>
-						<td>Alan Jose Brito Delgado</td>
-						<td>0426-21554876</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</td>
-						<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editClientModal"></i> <i class="fas fa-trash-alt pdel"></i></td>
-					</tr>
+					<?php
+						$query = $database->sqlQuery("SELECT doc, nombre, telefono, dir from clientes");
+
+						while ($row = $query->fetch(PDO::FETCH_ASSOC))  {
+							echo "<tr class=userDataRow data-id=".$row['doc'].">";
+						    echo "<td>".$row['doc']."</td>";
+						    echo "<td>".$row['nombre']."</td>";
+						    echo "<td>".$row['telefono']."</td>";
+						    echo "<td>".$row['dir']."</td>";
+						    echo '<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editClientModal"></i> <i class="fas fa-trash-alt pdel"></i></td>';
+						    echo "</tr>";
+						}
+					?>
 				</tbody>
 			</table>
 
@@ -139,7 +124,7 @@
 				                </div>
 				                <div class="button-row d-flex justify-content-end mt-4">
 									<input type="reset" class="btn btn-light">
-									<button type="submit" class="btn btn-gradient-primary-color" name="añadir">Añadir</button>
+									<button type="submit" class="btn btn-gradient-primary-color" name="editar">Editar</button>
 								</div>
 							</form>
 						</div>

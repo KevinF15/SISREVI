@@ -107,6 +107,6 @@
 					</tr>
 				</table>
 			</form>
-			<script type="text/javascript" src="js/ventas1.js"></script>
+			<script type="text/javascript" src="js/ventas.js"></script>
 		</div>
 </div>
