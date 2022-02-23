@@ -1,33 +1,40 @@
 <?php
-	require_once('models/bd.php');
-
-	class User extends Database {
-		private $isAdmin = false;
-
-		public function createEmployee($name, $doc, $type, $dir, $tel) {
-			$this->sqlQuery("INSERT INTO empleados(cedula, nombre, cargo, telefono, dir) VALUES ('".$name."', '".$doc."', '".$type."', '".$dir."', '".$tel."')");
+	class Employees extends Database {
+		public function create($name, $doc, $type, $dir, $tel) {
+			try {
+				$this->sqlQuery("INSERT INTO empleados(cedula, nombre, cargo, telefono, dir) VALUES ('".$name."', '".$doc."', '".$type."', '".$dir."', '".$tel."')");
+			} catch (Exception $e){
+				return $e->getMessage();
+			}
 		}
 
-		public function addClient($name, $doc, $dir, $tel) {
-			$this->sqlQuery("INSERT INTO clientes(doc, nombre, telefono, dir) VALUES ('".$name."', '".$doc."', '".$dir."', '".$tel."')");
+		public function delete($doc) {
+			$this->sqlQuery("DELETE FROM empleados WHERE cedula='".$doc."'");
 		}
 
-		public function addProvider($name, $rif, $dir, $tel) {
-			$this->sqlQuery("INSERT INTO proveedores(rif, nombre, telefono, dir) VALUES ('".$name."', '".$rif."', '".$dir."', '".$tel."')");
-		}
+		public function checkIfExist($doc) {
+        	$val = $this->sqlQuery("SELECT count(cedula) FROM empleados WHERE cedula='".$doc."'");
+        	$val = $val->fetchColumn();
 
-		public function deleteUser($id, $field, $table) {
-			$this->sqlQuery("DELETE FROM ".$table." WHERE ".$field." = '".$id."'");
-		}
+        	if ($val > 0) return true;
+        	return false;
+        }
 
-		public function isLogged() {
-			session_start();
-			if (!isset($_SESSION['logged'])) return false;
-			return true;
-		}
+        public function showList() {
+        	$query = $this->sqlQuery("SELECT cedula, nombre, cargo, telefono, dir from empleados");
 
-		public function isAdmin() {
-			
-		}
+			while ($row = $query->fetch(PDO::FETCH_ASSOC))  {
+				echo "<tr class=userDataRow data-id=".$row['cedula'].">";
+				    echo "<td>".$row['cedula']."</td>";
+				    echo "<td>".$row['nombre']."</td>";
+				    echo "<td>".$row['cargo']."</td>";
+				    echo "<td>".$row['telefono']."</td>";
+				    echo "<td>".$row['dir']."</td>";
+				    echo '<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editEmpModal"></i> <i class="fas fa-trash-alt pdel"></i></td>';
+			    echo "</tr>";
+			}
+        }
 	}
+
+	$employer = new Employees();
 ?>

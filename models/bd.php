@@ -6,12 +6,6 @@
         private $pass = "";
         private $pdo;
 
-        public function connectBD() {
-            $pdo = new PDO("mysql:host=".$this->ip.";dbname=".$this->name."",$this->user,$this->pass);
-            $pdo->exec("set names utf8");
-            return $pdo;
-        }
-
         public function __construct() {
             $this->pdo = new PDO("mysql:host=".$this->ip.";dbname=".$this->name."",$this->user,$this->pass);
             $this->pdo->exec("set names utf8");
@@ -21,8 +15,11 @@
         public function sqlQuery($query) {
             return $this->pdo->query($query); // Try?
         }
-    }
-    
 
-    $database = new Database();
+        public function connectBD() {
+            $pdo = new PDO("mysql:host=".$this->ip.";dbname=".$this->name."",$this->user,$this->pass);
+            $pdo->exec("set names utf8");
+            return $pdo;
+        }
+    }
 ?>

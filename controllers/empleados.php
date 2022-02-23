@@ -1,28 +1,30 @@
 <?php
-	require_once('models/bd.php');
+	if (!is_file("models/".$pagina.".php")){
+		echo "Falta definir la clase ".$pagina;
+		exit;
+	}
 
 	if(is_file("views/".$pagina.".php")){
+		require_once("models/".$pagina.".php"); 
+
 		if (!empty($_POST)) {
+			$empDoc = $user->parseDoc($_POST['cedPrefix'], $_POST['doc']);
+
 			if (isset($_POST['action']) && $_POST['action'] === 'delete') {
-				$user->deleteUser($_POST['id'], 'cedula', 'empleados');
+				$employer->delete($_POST['id']);
 				die();
 			} else if (isset($_POST['editar'])) {
-				$database->sqlQuery("UPDATE empleados SET cedula='".$_POST['doc']."', nombre='".$_POST['nombre']."', cargo='".$_POST['cargo']."', telefono='".$_POST['telefono']."', dir='".$_POST['dir']."' WHERE cedula='".$_POST['doc']."'");
-				exit();
+				$database->sqlQuery("UPDATE empleados SET cedula='".$empDoc."', nombre='".$_POST['nombre']."', cargo='".$_POST['cargo']."', telefono='".$_POST['telefono']."', dir='".$_POST['dir']."' WHERE cedula='".$empDoc."'");
+				die();
 			}
 
-			// no permitir quedar sin administraddores
+			// Validaciones
 
-			// $_POST validations
-			$userExist = $database->sqlQuery("SELECT count(cedula) FROM empleados WHERE cedula='".$_POST['doc']."'");
-
-			if ($userExist->fetchColumn() > 0) {
-				// User exist
+			if ($employer->checkIfExist($empDoc)) {
 				showAlert('danger', 'Cedula ya registrada...');
 			} else {
-				$user->createEmployee($_POST['doc'], $_POST['nombre'], $_POST['cargo'], $_POST['telefono'], $_POST['dir']);
-				//header('Location: userConf.php?for='.$_POST['doc']);
-				showAlert('success', '¡Empleado registrado satisfactoriamente! ... <b><a href="userConf.php?for='.$_POST['doc'].'"">Configuralo</a></b>');
+				$employer->create($empDoc, $_POST['nombre'], $_POST['cargo'], $_POST['telefono'], $_POST['dir']);
+				showAlert('success', '¡Empleado registrado satisfactoriamente! ... <b><a href="userConf.php?for='.$empDoc.'"">Configuralo</a></b>');
 			}
 		}
 

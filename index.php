@@ -1,15 +1,20 @@
 <?php
-	include 'init.php';
-	require_once("models/empleados.php");
+	require_once('init.php');
 
-	$user = new User();
-	if (!$user->isLogged()) header('Location: login.php');
+	// Validacion: Verificar si se inicio sesion
+	if (!$user->checkIfLogged()) redir('login.php');
 
+	// Datos de la vista
 	$pagina = "principal";
 
 	if (!empty($_GET['pagina'])) {
 		$pagina = $_GET['pagina'];
 	}
+
+	/*
+	 * Datos vistas
+	 *  -> $pagina => array(tituloVista, descripcionVista),
+	 */
 
 	$ventanas = array(
 		"principal" => array("Inicio", "Página principal"),
@@ -53,7 +58,7 @@
 				return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
 			}
 
-			// Gets the variable $pagina and converts it to a javascript variable
+			// Obtiene la variable $pagina y la convierte en una variable Javascript
 			var actual_page = (!getQueryStringValue("pagina") ? "inicio" : getQueryStringValue("pagina"));
 		</script>
 	</head>
@@ -152,7 +157,8 @@
 					if (is_file("controllers/".$pagina.".php")) {
 						require_once("controllers/".$pagina.".php");
 					} else {
-						header('Location: 404.php');
+						$pagina = "404";
+						require_once("controllers/".$pagina.".php");
 					}
 				?>
 			</main>

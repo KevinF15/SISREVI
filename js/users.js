@@ -7,14 +7,15 @@ $(document).ready(function() {
 			return $(this).text();
 		});
 
-		console.log(userData);
+		var doc = userData[0].split('-');
 
 		// For employers
 		if ($(".employees-panel")[0]) {
-			$('#editEmpForm input[name=doc]').val(userData[0]);
+			$(`#eCedPrefixInput option[value=${doc[0]}]`).attr('selected', 'selected')
+			$('#editEmpForm input[name=doc]').val(doc[1]);
 			$('#editEmpForm input[name=nombre]').val(userData[1]);
-			$('#editEmpForm input[name=cargo]').val(userData[2]);
-			$('#editEmpForm textarea[name=direccion]').val(userData[4]);
+			$(`#eChargeInput option[value=${userData[2]}]`).attr('selected', 'selected')
+			$('#editEmpForm textarea[name=dir]').val(userData[4]);
 			$('#editEmpForm input[name=telefono]').val(userData[3]);
 		} else if ($(".clients-panel")[0]) {
 			$('#editClientForm input[name=doc]').val(userData[0]);

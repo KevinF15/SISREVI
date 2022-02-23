@@ -12,17 +12,7 @@
 				</thead>
 				<tbody>
 					<?php
-						$query = $database->sqlQuery("SELECT doc, nombre, telefono, dir from clientes");
-
-						while ($row = $query->fetch(PDO::FETCH_ASSOC))  {
-							echo "<tr class=userDataRow data-id=".$row['doc'].">";
-						    echo "<td>".$row['doc']."</td>";
-						    echo "<td>".$row['nombre']."</td>";
-						    echo "<td>".$row['telefono']."</td>";
-						    echo "<td>".$row['dir']."</td>";
-						    echo '<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editClientModal"></i> <i class="fas fa-trash-alt pdel"></i></td>';
-						    echo "</tr>";
-						}
+						$client->showList();
 					?>
 				</tbody>
 			</table>

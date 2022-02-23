@@ -26,23 +26,7 @@
                     </thead>
                     <tbody>
                     	<?php
-							require_once('models/bd.php');
-							$database = new Database();
-
-							$query = $database->sqlQuery("SELECT cod, cod_barras, nombre, cod_marca, existencia, prec_proveedor, descripcion from productos");
-
-							while ($row = $query->fetch(PDO::FETCH_ASSOC))  {
-								if ($row['existencia'] == 0) $row['existencia'] = '<div class="sout">Agotado</div>';
-
-								echo "<tr class=productDataRow data-id=".$row['cod'].">";
-							    echo "<td>".$row['cod_barras']."</td>";
-							    echo "<td>".$row['nombre']."</td>";
-							    echo "<td>".$row['descripcion']."</td>";
-							    echo "<td>".$row['existencia']."</td>";
-							    echo "<td>".$row['prec_proveedor']."</td>";
-							    echo '<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editEmpModal"></i> <i class="fas fa-trash-alt pdel"></i></td>';
-							    echo "</tr>";
-							}
+							$product->showList();
 						?>
 
                         <!--<tr>

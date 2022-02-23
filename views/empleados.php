@@ -13,21 +13,7 @@
 				</thead>
 				<tbody>
 					<?php
-						require_once('models/bd.php');
-						$database= new Database();
-
-						$query = $database->sqlQuery("SELECT cedula, nombre, cargo, telefono, dir from empleados");
-
-						while ($row = $query->fetch(PDO::FETCH_ASSOC))  {
-							echo "<tr class=userDataRow data-id=".$row['cedula'].">";
-						    echo "<td>".$row['cedula']."</td>";
-						    echo "<td>".$row['nombre']."</td>";
-						    echo "<td>".$row['cargo']."</td>";
-						    echo "<td>".$row['telefono']."</td>";
-						    echo "<td>".$row['dir']."</td>";
-						    echo '<td><i class="fas fa-pencil-alt pedit" data-bs-toggle="modal" data-bs-target="#editEmpModal"></i> <i class="fas fa-trash-alt pdel"></i></td>';
-						    echo "</tr>";
-						}
+						$employer->showList();						
 					?>
 				</tbody>
 			</table>
@@ -60,8 +46,14 @@
 					            <div class="form-group row mb-3">
 					     			<div class="col-6">
 				                    	<label for="edocInput" class="form-label">Documento</label>
-				                        <input type="number" class="form-control" id="edocInput" name="doc" aria-describedby="edocHelp">
-				                        <div id="edocHelp" class="form-text"></div>
+				                        <div class="input-group">
+						                   <select class="input-group-text" id="cedPrefixInput" name="cedPrefix">
+											    <option value="V">V</option>
+											    <option value="E">E</option>
+											</select>
+						                    <input type="text" class="form-control" id="edocInput" placeholder="Cedula" name="doc" required>
+										</div>
+										<div id="edocHelp" class="form-text"></div>
 				                    </div>
 				                    <div class="col-6">
 				                        <label for="echargeInput" class="form-label">Cargo</label>
@@ -116,14 +108,19 @@
 				                </div>
 					            <div class="form-group row mb-3">
 					     			<div class="col-6">
-				                    	<label for="edocInput" class="form-label">Documento</label>
-				                        <input type="number" class="form-control" id="edocInput" name="doc" aria-describedby="edocHelp">
-				                        <div id="edocHelp" class="form-text"></div>
+				                    	<div class="input-group">
+						                   <select class="input-group-text" id="eCedPrefixInput" name="cedPrefix">
+											    <option value="V">V</option>
+											    <option value="E">E</option>
+											</select>
+						                    <input type="text" class="form-control" id="edocInput" placeholder="Cedula" name="doc" required>
+										</div>
+										<div id="edocHelp" class="form-text"></div>
 				                    </div>
 				                    <div class="col-6">
 				                        <label for="echargeInput" class="form-label">Cargo</label>
-				                        <select class="form-select" name="cargo" id="echargeInput" aria-describedby="chargeHelp">
-				                        	<option value="Administrador" selected="">Administrador</option>
+				                        <select class="form-select" name="cargo" id="eChargeInput" aria-describedby="chargeHelp">
+				                        	<option value="Administrador">Administrador</option>
 				                        	<option value="Cajero">Cajero</option>
 				                        </select>
 				                        <div id="chargeHelp" class="form-text"></div>

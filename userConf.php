@@ -1,5 +1,5 @@
 <?php
-	require_once('models/bd.php');
+	include 'init.php';
 	$userCed = '';
 
 	if (!empty($_GET['for'])) {
@@ -7,6 +7,7 @@
 
 		if (!empty($_POST)) {
 			$database->sqlQuery("UPDATE empleados SET clave = ".$_POST['clave']." WHERE cedula = '".$userCed."'");
+			redir('index.php?pagina=principal');
 		}
 
 	} else if (empty($_GET)) {
@@ -39,7 +40,7 @@
 			<main id="content">
 				<div class="card card-login">
 					<i class="logo-icon fab fa-artstation"></i> <h2 class="fw-bolder mb-4">SISREVI</h2>
-                	<h3 class="fw-bolder mb-0">Configura tu cuenta de Administrador</h3>
+                	<h3 class="fw-bolder mb-0">Configura tu cuenta</h3>
                 	<p class="mb-3">Rellena el siguiente formulario</p>
 
                 	<?php
@@ -48,9 +49,9 @@
 
                 	<form id="loginForm" class="forms d-flex flex-column text-start" method="POST">
                 		<div class="form-group mb-3">
-		                    <label class="form-label" for="loginCedInput">Cedula</label>
-						    <input type="text" class="form-control" id="loginCedInput" placeholder="Cedula" name="cedula" value="<?=$userCed?>" disabled>
-							<div id="loginCedHelp" class="form-text"></div>
+		                    <label class="form-label" for="eloginCedInput">Cedula</label>
+						    <input type="text" class="form-control" id="eloginCedInput" placeholder="Cedula" name="cedula" value="<?=$userCed?>" disabled>
+							<div id="eloginCedHelp" class="form-text"></div>
 						 </div>
 
 		                <div class="form-group mb-3">
@@ -78,7 +79,9 @@
 							}
 
 							if (!empty($_POST)) {
-								$database->sqlQuery("INSERT INTO empleados(cedula, nombre, cargo, telefono, dir, clave) VALUES ('".$_POST['doc']."', '".$_POST['nombre']."', '".$_POST['cargo']."', '".$_POST['telefono']."', '".$_POST['dir']."', '".$_POST['clave']."')");
+								$eDoc = $user->parseDoc($_POST['cedPrefix'], $_POST['cedula']);
+
+								$database->sqlQuery("INSERT INTO empleados(cedula, nombre, cargo, telefono, dir, clave) VALUES ('".$eDoc."', '".$_POST['nombre']."', '".$_POST['cargo']."', '".$_POST['telefono']."', '".$_POST['dir']."', '".$_POST['clave']."')");
 								header('Location: login.php');
 							}
                 	?>
@@ -99,8 +102,14 @@
 				        <div class="form-group row mb-3">
 				   			<div class="col-6">
 				               	<label for="edocInput" class="form-label">Documento</label>
-				                <input type="number" class="form-control" id="edocInput" name="doc" aria-describedby="edocHelp">
-				                <div id="edocHelp" class="form-text"></div>
+				                <div class="input-group">
+			                   <select class="input-group-text" id="cedPrefixInput" name="cedPrefix">
+								    <option value="V">V</option>
+								    <option value="E">E</option>
+								</select>
+			                    <input type="text" class="form-control" id="loginCedInput" placeholder="Cedula" name="cedula" required>
+							 </div>
+							 <div id="loginCedHelp" class="form-text"></div>
 				            </div>
 				            <div class="col-6">
 				 	            <label for="echargeInput" class="form-label">Cargo</label>

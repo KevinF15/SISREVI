@@ -1,25 +1,20 @@
 <?php
-	session_start();
-	require_once('init.php');
-	require_once('models/bd.php');
+	include 'init.php';
 
+	// Validar: Al menos 1 usuario registrado
 	$checkIfExistUsers = $database->sqlQuery("SELECT count(*) FROM empleados");
 
 	if ($checkIfExistUsers->fetchColumn() == 0) {
-     	header('Location: userConf.php?initConf');
+     	redir('userConf.php?initConf');
      	die();
 	}
 
-	if (isset($_SESSION['logged'])) header('Location: index.php');
+	// Validacion: Sesión ya iniciada
+	if ($user->checkIfLogged()) redir('index.php?pagina=principal');
 
 	if (!empty($_POST)) {
-		$query = $database->sqlQuery("SELECT count(*) FROM empleados WHERE cedula = '".$_POST['cedula']."' AND clave = '".$_POST['clave']."'");
-		if ($query->fetchColumn() > 0) {
-			$_SESSION['logged'] = true;
-			header('Location: index.php');
-		} else {
-			showAlert('danger', 'Datos incorrectos, verifique e intentelo de nuevo...');
-		}
+		$doc = $user->parseDoc($_POST['cedPrefix'], $_POST['cedula']);
+		$user->login($doc, $_POST['clave']);
 	}
 ?>
 
@@ -52,11 +47,17 @@
                 	<p class="mb-3">Ingresa tu usuario y contraseña</p>
 
                 	<form id="loginForm" class="forms d-flex flex-column text-start" method="POST">
+                		<label class="form-label" for="loginCedInput">Cedula</label>
                 		<div class="form-group mb-3">
-		                    <label class="form-label" for="loginCedInput">Cedula</label>
-						    <input type="text" class="form-control" id="loginCedInput" placeholder="Cedula" name="cedula" required>
-							<div id="loginCedHelp" class="form-text"></div>
-						 </div>
+	                		<div class="input-group">
+			                   <select class="input-group-text" id="cedPrefixInput" name="cedPrefix">
+								    <option value="V">V</option>
+								    <option value="E">E</option>
+								</select>
+			                    <input type="text" class="form-control" id="loginCedInput" placeholder="Cedula" name="cedula" required>
+							 </div>
+							 <div id="loginCedHelp" class="form-text"></div>
+						</div>
 
 		                <div class="form-group mb-3">
 		                	<label for="loginPassInput" class="form-label">Contraseña</label>
